@@ -1,0 +1,4 @@
+base: hybrid_ph.yaml
+model:
+  cnn: efficient
+

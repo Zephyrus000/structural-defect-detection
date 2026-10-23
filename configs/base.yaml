@@ -1,0 +1,60 @@
+# Research starting point, not validated accuracy hyperparameters.
+data:
+  sources:
+    - name: cubit-inseg
+      root: data/CUBIT-InSeg
+      manifest: manifest.csv
+      weight: 1.0
+      foreground_values: [255]
+      background_values: [0]
+      ignore_values: [128]
+  train_mode: crop
+  size: [256, 256]
+  augment: true
+model:
+  name: hybrid
+  cnn: standard
+  channels: [32, 64, 128]
+  feature_level: 2
+  embed_dim: 96
+  depth: 2
+  heads: 3
+  window_size: 8
+  patch_merging: false
+  decoder_channels: 32
+  init_weights: null
+loss:
+  dice_weight: 1.0
+  focal_weight: 1.0
+  ph:
+    weight: 0.05
+    window_size: 32
+    dimensions: [0]
+    min_persistence: 0.01
+    max_pairs: 64
+    every_n_steps: 1
+    warmup_epochs: 0
+    ignore_policy: skip_window
+    boundary_policy: closed_window
+training:
+  seed: 42
+  epochs: 20
+  effective_batch: 8
+  optimizer:
+    lr: 0.0003
+    weight_decay: 0.01
+  scheduler: cosine
+evaluation:
+  threshold: 0.5
+  mode: tile
+  overlap: 32
+  topology_window: 64
+runtime:
+  device: cpu
+  workers: 0
+  micro_batch: 2
+  amp: false
+  threads: 4
+output:
+  root: .cache/runs
+

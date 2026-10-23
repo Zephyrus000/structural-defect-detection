@@ -1,0 +1,5 @@
+base: hybrid_ph.yaml
+loss:
+  ph:
+    weight: 0.0
+

@@ -1,0 +1,5 @@
+base: ../base.yaml
+loss:
+  ph:
+    weight: 0.05
+

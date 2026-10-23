@@ -1,0 +1,24 @@
+# Class mapping supplied in data/CUBIT-InSeg/data.yaml on 2026-10-22.
+# Paths follow the extracted dataset layout; source annotations stay unchanged.
+format: yolo_polygon
+release: CUBIT-InSeg-2026-local-download
+# Candidate coverage policy: audit annotation completeness before research runs.
+coverage: full_crack
+class_names:
+  0: crack
+  1: spalling
+class_mapping_source: data/CUBIT-InSeg/data.yaml
+target_categories: [crack]
+other_defects: ignore
+output_dir: prepared/crack_semantic_v1
+groups_csv: null
+splits:
+  train:
+    images: train/images
+    labels: train/labels
+  validation:
+    images: val/images
+    labels: val/labels
+  test:
+    images: test/images
+    labels: test/labels
