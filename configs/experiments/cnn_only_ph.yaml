@@ -1,0 +1,5 @@
+base: hybrid_ph.yaml
+model:
+  name: cnn_only
+# Same projection/decoder and PH; Swin is replaced by identity on projected features.
+

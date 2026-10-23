@@ -1,0 +1,20 @@
+name: hybrid_ph_ablation
+base: ../experiments/hybrid_ph.yaml
+search:
+  method: grid
+  parameters:
+    training.optimizer.lr: [0.0001, 0.0003]
+  # Disjoint parameter branches make conditional experiments explicit.
+  groups:
+    - loss.ph.weight: [0.0]
+    - loss.ph.weight: [0.05]
+      loss.ph.window_size: [32, 64]
+seeds: [17, 42, 93]
+selection:
+  split: validation
+  metric: crack_dice
+  mode: max
+execution:
+  max_parallel_per_device: 1
+  resume_completed: skip
+

@@ -1,0 +1,22 @@
+# Label archives inspected locally on 2026-10-22 contain YOLO polygons.
+# Extract each images.zip and labels.zip INSIDE its train/val/test directory.
+# Supply the publisher's class mapping before running; no IDs are guessed here.
+format: yolo_polygon
+release: CUBIT-InSeg-2026-local-download
+coverage: full_crack
+class_names: {}  # Fill integer IDs -> names using the downloaded release documentation.
+class_mapping_source: null  # Path/URL or documented confirmation of that mapping.
+target_categories: [crack]
+other_defects: ignore
+output_dir: prepared/crack_semantic_v1
+groups_csv: null
+splits:
+  train:
+    images: train/images
+    labels: train/labels
+  validation:
+    images: val/images
+    labels: val/labels
+  test:
+    images: test/images
+    labels: test/labels

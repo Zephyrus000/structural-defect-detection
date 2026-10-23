@@ -1,0 +1,13 @@
+# Untested on physical RTX 4090. Adjust data root on that machine.
+roots:
+  cubit-inseg: data/CUBIT-InSeg
+runtime:
+  device: cuda:0
+  workers: 0
+  micro_batch: 4
+  amp: true
+  amp_dtype: bfloat16
+  threads: 8
+output:
+  root: .cache/runs_4090
+

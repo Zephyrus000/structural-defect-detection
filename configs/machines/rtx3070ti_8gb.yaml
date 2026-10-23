@@ -1,0 +1,13 @@
+# Candidate profile; measurements and tested resolution are documented in IMPLEMENTATION_STATUS.md.
+roots:
+  cubit-inseg: data/CUBIT-InSeg
+runtime:
+  device: cuda:0
+  workers: 4
+  micro_batch: 1
+  amp: true
+  amp_dtype: bfloat16
+  threads: 4
+output:
+  root: .cache/runs_3070ti
+

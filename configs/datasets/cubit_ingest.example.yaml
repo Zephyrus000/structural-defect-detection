@@ -1,0 +1,20 @@
+# EXAMPLE ONLY: inspect the downloaded archive and edit paths/category names first.
+# The public GitHub README does not document archive structure or category IDs.
+format: coco
+release: CUBIT-InSeg-2026-local-download
+coverage: full_crack
+target_categories: [crack]
+other_defects: ignore
+output_dir: prepared/crack_semantic_v1
+groups_csv: null
+splits:
+  train:
+    images: images/train
+    annotations: annotations/instances_train.json
+  validation:
+    images: images/val
+    annotations: annotations/instances_val.json
+  test:
+    images: images/test
+    annotations: annotations/instances_test.json
+
