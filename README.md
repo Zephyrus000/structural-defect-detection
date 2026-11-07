@@ -20,6 +20,24 @@ sdd doctor --device cuda:0
 
 ## 2. Chạy thử trên dữ liệu thật
 
+### GitHub Actions cho Studio 7
+
+Workflow [`Train ML Model`](.github/workflows/train.yml) chạy khi push lên `main` hoặc `codex/studio7-cif-actions`, và khi mở hoặc cập nhật pull request vào `main`. Có thể chọn **Run workflow** khi workflow đã có trên nhánh mặc định. Job `train` dùng Python 3.12 và PyTorch CPU trên `ubuntu-latest`.
+
+Runner tải các mẫu từ split `train_tiled` và `val_tiled` chính thức của CIF. `python model.py` huấn luyện CNN–Swin với Dice, Focal và PH trong 2 epoch trên hai crop train và một crop validation. Mask dùng lớp `2` (Crack) làm foreground, bỏ qua vùng có nhãn lớp khác hoặc crowd, và dùng vùng chưa gán nhãn làm background trong lần kiểm tra nhỏ này. Điểm validation chỉ áp dụng cho lần kiểm tra pipeline. [CIF của IBM Research](https://huggingface.co/datasets/ibm-research/cif-dataset)
+
+Để trình diễn theo rubric, push một commit lên `main`. Trong **Actions → Train ML Model**, chọn lượt chạy của commit và tải **model-results** ở mục **Artifacts**. Gói này có `model_results.png`, `metrics.txt`, lịch sử huấn luyện, cấu hình, báo cáo dữ liệu, nguồn các mẫu CIF và checkpoint tốt nhất.
+
+Để chạy cục bộ từ thư mục gốc, dùng môi trường Python của dự án đã cài PyTorch. Chuẩn bị dữ liệu một lần, sau đó có thể chạy lại lệnh huấn luyện với manifest đã lưu. Kết quả được ghi vào `.cache/studio7/<run-id>/`.
+
+```powershell
+python -m pip install -r requirements.txt
+python .github/scripts/prepare_cif.py
+python model.py
+```
+
+### Kiểm tra dữ liệu CUBIT cục bộ
+
 Xem [runbook](docs/runbook.md) để biết cách chạy và từng đường dẫn output. CLI dùng `train --dry-run` thay cho demo tạo dữ liệu. Chưa có manifest thì đọc trực tiếp CUBIT YOLO trong bộ nhớ:
 
 ```powershell
