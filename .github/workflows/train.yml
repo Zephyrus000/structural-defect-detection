@@ -2,7 +2,7 @@ name: Train ML Model
 
 on:
   push:
-    branches: [main, codex/studio7-cif-actions]
+    branches: [main, cif-setting]
   pull_request:
     branches: [main]
   workflow_dispatch:
