@@ -6,8 +6,6 @@ H0 essential intervals are capped at filtration value 1, including empty targets
 Domains are closed, non-overlapping windows; windows touching ignore are skipped.
 """
 
-from __future__ import annotations
-
 from abc import ABC, abstractmethod
 
 import gudhi

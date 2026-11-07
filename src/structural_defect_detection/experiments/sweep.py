@@ -1,7 +1,5 @@
 """Immutable grid/random plans, disjoint shards and provenance-aware collection."""
 
-from __future__ import annotations
-
 import copy
 import csv
 import itertools

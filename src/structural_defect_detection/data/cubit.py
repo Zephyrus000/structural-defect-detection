@@ -4,8 +4,6 @@ The public repository does not expose the downloaded archive layout. File paths
 and category names therefore come from an ingestion YAML, never guessed class IDs.
 """
 
-from __future__ import annotations
-
 import csv
 import json
 from collections import defaultdict

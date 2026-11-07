@@ -1,7 +1,5 @@
 """Portable CSV manifests with content verification and split leakage checks."""
 
-from __future__ import annotations
-
 import csv
 import hashlib
 import random

@@ -1,7 +1,5 @@
 """Training and epoch-boundary checkpointing; no YAML or CLI dependencies."""
 
-from __future__ import annotations
-
 import os
 import random
 import time

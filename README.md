@@ -6,12 +6,12 @@ Thiết kế: [architecture](docs/RESEARCH_FRAMEWORK_ARCHITECTURE.md), [spec](do
 
 ## 1. Cài đặt
 
-Khuyến nghị Python 3.12 trong virtual environment riêng. Máy hiện tại đã có `.venv` với PyTorch CUDA 12.8; tránh dùng Python Anaconda global đang có xung đột OpenMP. Trên máy mới:
+Dùng CPython 3.14.x trong virtual environment riêng; package yêu cầu `>=3.14,<3.15` và `.python-version` chọn dòng 3.14. Tạo môi trường bằng interpreter 3.14:
 
 ```powershell
-python -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -e ".[dev]" -c requirements.txt
 sdd doctor --device cuda:0
 ```
@@ -22,13 +22,13 @@ sdd doctor --device cuda:0
 
 ### GitHub Actions cho Studio 7
 
-Workflow [`Train ML Model`](.github/workflows/train.yml) chạy khi push lên `main` hoặc `codex/studio7-cif-actions`, và khi mở hoặc cập nhật pull request vào `main`. Có thể chọn **Run workflow** khi workflow đã có trên nhánh mặc định. Job `train` dùng Python 3.12 và PyTorch CPU trên `ubuntu-latest`.
+Workflow [`Train ML Model`](.github/workflows/train.yml) chạy khi push lên `main` hoặc `cif-setting`, và khi mở hoặc cập nhật pull request vào `main`. Có thể chọn **Run workflow** khi workflow đã có trên nhánh mặc định. Job `train` đọc phiên bản Python từ [`.python-version`](.python-version) và dùng PyTorch CPU trên `ubuntu-latest`.
 
 Runner tải các mẫu từ split `train_tiled` và `val_tiled` chính thức của CIF. `python model.py` huấn luyện CNN–Swin với Dice, Focal và PH trong 2 epoch trên hai crop train và một crop validation. Mask dùng lớp `2` (Crack) làm foreground, bỏ qua vùng có nhãn lớp khác hoặc crowd, và dùng vùng chưa gán nhãn làm background trong lần kiểm tra nhỏ này. Điểm validation chỉ áp dụng cho lần kiểm tra pipeline. [CIF của IBM Research](https://huggingface.co/datasets/ibm-research/cif-dataset)
 
 Để trình diễn theo rubric, push một commit lên `main`. Trong **Actions → Train ML Model**, chọn lượt chạy của commit và tải **model-results** ở mục **Artifacts**. Gói này có `model_results.png`, `metrics.txt`, lịch sử huấn luyện, cấu hình, báo cáo dữ liệu, nguồn các mẫu CIF và checkpoint tốt nhất.
 
-Để chạy cục bộ từ thư mục gốc, dùng môi trường Python của dự án đã cài PyTorch. Chuẩn bị dữ liệu một lần, sau đó có thể chạy lại lệnh huấn luyện với manifest đã lưu. Kết quả được ghi vào `.cache/studio7/<run-id>/`.
+Để chạy cục bộ từ thư mục gốc, dùng môi trường Python 3.14 đã cài dự án theo mục 1. Chuẩn bị dữ liệu một lần, sau đó có thể chạy lại lệnh huấn luyện với manifest đã lưu. Kết quả được ghi vào `.cache/studio7/<run-id>/`.
 
 ```powershell
 python -m pip install -r requirements.txt

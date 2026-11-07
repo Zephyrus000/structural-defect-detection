@@ -1,7 +1,5 @@
 """Metrics on original images, grouped before dataset/domain aggregation."""
 
-from __future__ import annotations
-
 from collections import defaultdict
 from pathlib import Path
 

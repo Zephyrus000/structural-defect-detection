@@ -6,7 +6,7 @@ Thiết kế: [architecture](RESEARCH_FRAMEWORK_ARCHITECTURE.md), [spec](spec.md
 
 ## 1. Mở môi trường chạy
 
-### Máy hiện tại đã có `.venv`
+### Khi đã có `.venv` Python 3.14
 
 Mỗi khi mở terminal mới, chạy:
 
@@ -22,12 +22,12 @@ $sddPython = (Resolve-Path .\.venv\Scripts\python.exe).Path
 
 ### Cài trên máy mới
 
-Dùng Python 3.12; nếu chưa có Python Launcher `py`, thay bằng đường dẫn Python 3.12 đã cài. Không tạo lại `.venv` của máy đang dùng.
+Dùng CPython 3.14.x; nếu chưa có Python Launcher `py`, thay bằng đường dẫn interpreter 3.14 đã cài. Kiểm `.venv/Scripts/python.exe --version` trước khi dùng môi trường có sẵn; nếu khác 3.14.x, tạo môi trường 3.14 riêng và cài lại dependencies.
 
 ```powershell
 Set-Location D:\structural-defect-detection
-py -3.12 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
+py -3.14 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu130
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]" -c requirements.txt
 ```
 
