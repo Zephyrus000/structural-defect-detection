@@ -1,7 +1,5 @@
 """Strict, immutable configuration and machine-independent experiment identities."""
 
-from __future__ import annotations
-
 import copy
 import dataclasses
 import hashlib

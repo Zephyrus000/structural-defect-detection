@@ -1,7 +1,5 @@
 """Streaming ingestion of CUBIT YOLO polygon labels with explicit class semantics."""
 
-from __future__ import annotations
-
 import csv
 import hashlib
 from pathlib import Path

@@ -1,8 +1,8 @@
-# Direct dependency versions exercised on Windows 11 / Python 3.12.14.
-# Install the desired torch CUDA/CPU wheel first; ==2.11.0 also accepts +cu128.
+# Direct dependency constraints for CPython 3.14.x.
+# Install the desired torch CUDA/CPU wheel first; ==2.11.0 also accepts +cu130.
 torch==2.11.0
 torchvision==0.26.0
-gudhi==3.11.0
+gudhi==3.13.0
 numpy==2.5.4
 scipy==1.18.1
 Pillow==13.0.0

@@ -1,5 +1,18 @@
 # Trạng thái triển khai — 2026-10-22
 
+## Cập nhật Python 3.14 — 2026-11-06
+
+- Runtime hiện yêu cầu CPython `>=3.14,<3.15`; `.python-version` chọn 3.14 và Ruff dùng `py314`.
+- Source dùng deferred annotations mặc định của Python 3.14, đã bỏ `from __future__ import annotations` ở 19 module. ConfigLoader tiếp tục resolve kiểu bằng `typing.get_type_hints`.
+- GUDHI nâng từ 3.11.0 lên 3.13.0 để dùng wheel CPython 3.14 trên Windows. PyTorch/torchvision giữ cặp 2.11.0/0.26.0.
+- Đã tạo `.venv` CPython 3.14.2, cài editable với constraints và torch 2.11.0+cu128/torchvision 0.26.0+cu128. `pip check` và `ruff check src tests` đạt; `tests/test_config.py` có **13 passed**, toàn suite collect được 28 tests.
+- Sau đó chuyển `.venv` sang torch **2.11.0+cu130** và torchvision **0.26.0+cu130**. Runtime CUDA báo **13.0**, đã kiểm CUDA matrix multiplication/backward và torchvision CUDA NMS trên RTX 3060. `pip check` đạt và chạy lại 13 tests config/CLI đều pass; hướng dẫn cài đặt dùng wheel index `cu130`.
+- Đã kiểm cú pháp 29 file source/test, 12 tổ hợp experiment/machine, native type-hint reflection và import 24 module. CUDA doctor nhận RTX 3060 12 GB; model baseline khởi tạo trên GPU, GUDHI H0/diagram-distance có finite CUDA gradient trong numerical API probe. Probe này không dùng ảnh và không phải bằng chứng training.
+- Chưa chạy 15 tests dùng dữ liệu thật, dry-run, full training hoặc resume sau migration vì checkout hiện tại chưa có dataset CUBIT.
+- Các kết quả trên dữ liệu thật và GPU 3070 Ti dưới đây là bằng chứng trước migration, không xác nhận lại training trên Python 3.14.
+
+## Bằng chứng trước migration
+
 Package OOP theo composition đã có baseline CNN → Projection → Swin → Decoder, Dice/Focal/PH, CLI/YAML, resume, sweep/sharding/collect. Theo yêu cầu mới, luồng tạo dữ liệu và các fixture ảnh/nhãn giả đã được bỏ; chạy thử dùng **dữ liệu thật + `train --dry-run`**. Hướng dẫn đầy đủ: [runbook](docs/runbook.md).
 
 ## Luồng chạy thử hiện tại

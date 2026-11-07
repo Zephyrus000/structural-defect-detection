@@ -1,7 +1,5 @@
 """Stateless per-epoch augmentation makes resume independent of worker scheduling."""
 
-from __future__ import annotations
-
 from collections import Counter
 
 import numpy as np

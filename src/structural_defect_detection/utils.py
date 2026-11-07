@@ -1,7 +1,5 @@
 """Artifact writing, reproducibility and runtime metadata."""
 
-from __future__ import annotations
-
 import hashlib
 import importlib.metadata
 import json

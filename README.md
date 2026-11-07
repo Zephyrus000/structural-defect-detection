@@ -6,12 +6,12 @@ Thiết kế: [architecture](docs/RESEARCH_FRAMEWORK_ARCHITECTURE.md), [spec](do
 
 ## 1. Cài đặt
 
-Khuyến nghị Python 3.12 trong virtual environment riêng. Máy hiện tại đã có `.venv` với PyTorch CUDA 12.8; tránh dùng Python Anaconda global đang có xung đột OpenMP. Trên máy mới:
+Dùng CPython 3.14.x trong virtual environment riêng; package yêu cầu `>=3.14,<3.15` và `.python-version` chọn dòng 3.14. Tạo môi trường bằng interpreter 3.14:
 
 ```powershell
-python -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu128
+python -m pip install torch==2.11.0 torchvision==0.26.0 --index-url https://download.pytorch.org/whl/cu130
 python -m pip install -e ".[dev]" -c requirements.txt
 sdd doctor --device cuda:0
 ```

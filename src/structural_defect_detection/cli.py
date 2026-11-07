@@ -1,7 +1,5 @@
 """Thin command handlers. Run `sdd --help` for the public interface."""
 
-from __future__ import annotations
-
 import argparse
 import json
 import sys

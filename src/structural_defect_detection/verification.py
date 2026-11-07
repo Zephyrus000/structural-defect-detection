@@ -1,7 +1,5 @@
 """Real-data forward/backward checks without optimizer updates or checkpoints."""
 
-from __future__ import annotations
-
 import json
 import re
 import time
