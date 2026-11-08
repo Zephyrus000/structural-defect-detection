@@ -1,0 +1,23 @@
+# Small CPU training run for GitHub Actions on annotated CIF crops.
+base: hybrid_ph.yaml
+data:
+  sources:
+    - name: cif-dataset
+      root: .cache/cif-studio7
+      manifest: manifest.csv
+  size: [96, 96]
+  augment: false
+loss:
+  ph:
+    window_size: 16
+training:
+  epochs: 2
+  effective_batch: 2
+evaluation:
+  overlap: 16
+  topology_window: 16
+runtime:
+  micro_batch: 1
+  threads: 2
+output:
+  root: .cache/studio7
