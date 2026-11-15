@@ -4,6 +4,8 @@ Framework nghiên cứu Python/PyTorch cho binary crack semantic segmentation. B
 
 Thiết kế: [architecture](docs/RESEARCH_FRAMEWORK_ARCHITECTURE.md), [spec](docs/spec.md), [implementation plan](docs/implementation_plan.md). Kết quả kiểm chứng và giới hạn: [IMPLEMENTATION_STATUS.md](IMPLEMENTATION_STATUS.md).
 
+Thành viên mới bắt đầu với [runbook tải CUBIT và CIF, chuẩn bị manifest và chạy ablation](RUNBOOK.md).
+
 ## 1. Cài đặt
 
 Dùng CPython 3.14.x trong virtual environment riêng; package yêu cầu `>=3.14,<3.15` và `.python-version` chọn dòng 3.14. Tạo môi trường bằng interpreter 3.14:
