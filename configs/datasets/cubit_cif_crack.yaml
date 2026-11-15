@@ -1,0 +1,23 @@
+protocol: crack_v1
+mask_values:
+  background: 0
+  ignore: 128
+  crack: 255
+cubit-inseg:
+  source: https://github.com/BenyunZhao/CUBIT-InSeg
+  release: CUBIT-InSeg-2026-local-download
+  license: CC-BY-4.0
+  classes: {0: Crack, 1: Spalling}
+  foreground: [0]
+  include: Only images with an explicit crack annotation; audit spalling-only images separately.
+  background: Pixels outside annotated defects in crack-annotated images are assumed background.
+cif-dataset:
+  source: https://huggingface.co/datasets/ibm-research/cif-dataset
+  release: 758cdc9295456971027ee44553c2db013a60993b
+  license: CDLA-Permissive-2.0
+  classes: {1: Algae, 2: Crack, 3: Net-crack, 4: Crack with precipitation, 5: Rust, 6: Spalling}
+  foreground: [2, 3, 4]
+  include: Full-resolution official train, val and test only.
+  background: Pixels outside annotated defects under the published annotation protocol.
+ignore_policy: Other defect classes and crowd annotations override foreground on overlap.
+duplicate_policy: Keep test before validation before train when masks agree; exclude conflicts.

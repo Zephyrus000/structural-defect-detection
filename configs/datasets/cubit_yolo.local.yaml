@@ -17,7 +17,7 @@ splits:
     images: train/images
     labels: train/labels
   validation:
-    images: val/images
+    images: val/images/images
     labels: val/labels
   test:
     images: test/images

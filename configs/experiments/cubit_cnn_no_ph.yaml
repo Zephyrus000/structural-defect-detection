@@ -1,0 +1,8 @@
+base: hybrid_no_ph.yaml
+data:
+  sources:
+    - name: cubit-inseg
+      root: data/CUBIT-InSeg
+      manifest: prepared/crack_v1/manifest.csv
+model:
+  name: cnn_only

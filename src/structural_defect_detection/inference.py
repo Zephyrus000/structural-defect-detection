@@ -1,5 +1,6 @@
 """Original-coordinate prediction using resize or overlapping tiles."""
 
+from itertools import batched, product
 from pathlib import Path
 
 import numpy as np
@@ -27,10 +28,10 @@ class Predictor:
     def predict(self, image: np.ndarray) -> np.ndarray:
         self.model.eval()
         data, evaluation = self.config.data, self.config.evaluation
-        value = image_tensor(image, data.mean, data.std)
         height, width = image.shape[:2]
         h, w = data.size
         if evaluation.mode == "resize":
+            value = image_tensor(image, data.mean, data.std)
             tensor = F.interpolate(value[None], (h, w), mode="bilinear", align_corners=False).to(
                 self.device
             )
@@ -38,19 +39,35 @@ class Predictor:
             return F.interpolate(result, (height, width), mode="bilinear", align_corners=False)[
                 0, 0
             ].numpy()
-        total = torch.zeros((height, width))
+        gpu_tiles = self.config.runtime.gpu_tiles
+        if gpu_tiles:
+            value = torch.from_numpy(np.ascontiguousarray(image)).to(self.device).permute(2, 0, 1)
+            mean = value.new_tensor(data.mean, dtype=torch.float32)[None, :, None, None]
+            std = value.new_tensor(data.std, dtype=torch.float32)[None, :, None, None]
+        else:
+            value = image_tensor(image, data.mean, data.std)
+        total = torch.zeros((height, width), device=value.device)
         counts = torch.zeros_like(total)
-        for top in tile_starts(height, h, evaluation.overlap):
-            for left in tile_starts(width, w, evaluation.overlap):
+        positions = product(
+            tile_starts(height, h, evaluation.overlap), tile_starts(width, w, evaluation.overlap)
+        )
+        for batch in batched(positions, self.config.runtime.micro_batch):
+            tiles = []
+            for top, left in batch:
                 tile = value[:, top : top + h, left : left + w]
-                th, tw = tile.shape[-2:]
-                tile = F.pad(tile, (0, w - tw, 0, h - th))
-                probability = (
-                    self.model(tile[None].to(self.device)).sigmoid().float().cpu()[0, 0, :th, :tw]
-                )
-                total[top : top + th, left : left + tw] += probability
+                tiles.append(tile)
+            inputs = torch.stack(tiles)
+            th, tw = inputs.shape[-2:]
+            if gpu_tiles:
+                inputs = (inputs.float().div_(255) - mean) / std
+            if (th, tw) != (h, w):
+                inputs = F.pad(inputs, (0, w - tw, 0, h - th))
+            probabilities = self.model(inputs.to(self.device)).sigmoid().float().to(total.device)[:, 0]
+            for (top, left), probability in zip(batch, probabilities, strict=True):
+                th, tw = min(h, height - top), min(w, width - left)
+                total[top : top + th, left : left + tw] += probability[:th, :tw]
                 counts[top : top + th, left : left + tw] += 1
-        return (total / counts).numpy()
+        return total.div_(counts).cpu().numpy()
 
 
 class PredictionWriter:

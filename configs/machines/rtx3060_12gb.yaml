@@ -1,10 +1,11 @@
-# Untested on physical RTX 3060. Adjust data root on that machine.
+# RTX 3060 profile for the CUBIT crack baseline.
 roots:
   cubit-inseg: data/CUBIT-InSeg
 runtime:
   device: cuda:0
-  workers: 0
-  micro_batch: 2
+  workers: 4
+  micro_batch: 8
+  gpu_tiles: true
   amp: true
   amp_dtype: bfloat16
   threads: 4

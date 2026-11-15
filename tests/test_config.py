@@ -11,8 +11,10 @@ from structural_defect_detection.config import ConfigLoader
     [
         {"model": {"unknown": 1}},
         {"training": {"epochs": True}},
+        {"training": {"early_stop_patience": -1}},
         {"runtime": {"micro_batch": 3}},
         {"runtime": {"amp_dtype": "float8"}},
+        {"runtime": {"gpu_tiles": True}},
         {"data": {"mean": [float("nan"), 0.5, 0.5]}},
         {"model": {"embed_dim": 17}},
         {"model": {"patch_merging": True}},

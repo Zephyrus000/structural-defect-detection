@@ -108,19 +108,30 @@ def test_real_crop_alignment_padding_and_leakage(real_config):
         ManifestBuilder(cfg.data).validate()
 
 
-def test_tile_alignment_on_real_rgb(annotated_crops, real_config):
+@pytest.mark.parametrize(("shape", "batch_sizes"), [((43, 47), [3, 1]), ((19, 47), [2])])
+@pytest.mark.parametrize("gpu_tiles", [False, True])
+def test_tile_alignment_on_real_rgb(annotated_crops, real_config, shape, batch_sizes, gpu_tiles):
+    if gpu_tiles and not torch.cuda.is_available():
+        pytest.skip("CUDA is required for GPU tiling")
+    device = torch.device("cuda:0" if gpu_tiles else "cpu")
+    batches = []
+
     class PixelModel(torch.nn.Module):
         def forward(self, x):
+            assert x.device == device
+            batches.append(len(x))
             return x[:, :1]
 
     cfg = replace(
         real_config,
         data=replace(real_config.data, size=(32, 32), mean=(0.0, 0.0, 0.0), std=(1.0, 1.0, 1.0)),
+        runtime=replace(real_config.runtime, micro_batch=3, device=str(device), gpu_tiles=gpu_tiles),
     )
-    rgb = annotated_crops[0][0][:43, :47]
-    result = Predictor(PixelModel(), cfg, torch.device("cpu")).predict(rgb)
+    rgb = annotated_crops[0][0][: shape[0], : shape[1]]
+    result = Predictor(PixelModel(), cfg, device).predict(rgb)
     expected = torch.tensor(rgb[:, :, 0].astype(float) / 255).sigmoid().numpy()
     np.testing.assert_allclose(result, expected, atol=1e-6)
+    assert batches == batch_sizes
 
 
 @pytest.mark.parametrize("variant", ["standard", "efficient", "cnn_only"])

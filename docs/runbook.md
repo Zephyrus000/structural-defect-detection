@@ -53,10 +53,10 @@ Tên `data/CUBIT-InSeg/data.yaml` là metadata của dataset, **không phải ex
 |---|---|---|
 | Không truyền `--machine`, dùng base hiện tại | CPU / 2 | `.cache/runs/` |
 | `configs/machines/rtx3070ti_8gb.yaml` | CUDA / 1 | `.cache/runs_3070ti/` |
-| `configs/machines/rtx3060_12gb.yaml` | CUDA / 2 | `.cache/runs_3060/` |
+| `configs/machines/rtx3060_12gb.yaml` | CUDA / 8 | `.cache/runs_3060/` |
 | `configs/machines/rtx4090_24gb.yaml` | CUDA / 4 | `.cache/runs_4090/` |
 
-Machine YAML chỉ thay runtime, output root và dataset roots. Effective batch mặc định là 8; gradient accumulation tương ứng là 8/4/2 với ba GPU profiles. Profile 3060 và 4090 chưa được đo trên máy vật lý. Dùng đường dẫn có dấu `/` trong YAML để tránh escape của chuỗi Windows.
+Machine YAML chỉ thay runtime, output root và dataset roots. Effective batch mặc định là 8; gradient accumulation tương ứng là 8/1/2 với ba GPU profiles. Profile RTX 3060 dùng 4 workers và cắt/ghép tile trên GPU theo batch 8. Dùng đường dẫn có dấu `/` trong YAML để tránh escape của chuỗi Windows.
 
 ## 3. Chạy thử bằng dữ liệu thật với `--dry-run`
 

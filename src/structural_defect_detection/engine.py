@@ -176,7 +176,7 @@ class Trainer:
                 counts += count
                 totals["total"] += float(loss.total.detach()) * count
                 for key, value in loss.components.items():
-                    totals[key] += float(value.detach()) * count
+                    totals[key] = totals.get(key, 0.0) + float(value.detach()) * count
                 ph_seconds += loss.statistics.get("ph_seconds", 0)
                 ph_terms += loss.statistics.get("ph_terms", 0)
                 ph_skipped += loss.statistics.get("ph_skipped_windows", 0)
@@ -207,7 +207,14 @@ class Trainer:
 
     def fit(self) -> dict:
         evaluator = Evaluator(self.model, self.config, self.device)
+        patience = self.config.training.early_stop_patience
+        best_epoch = next(
+            (entry["epoch"] for entry in self.history if entry["validation_dice"] == self.best), -1
+        )
         for epoch in range(self.start_epoch, self.config.training.epochs):
+            if patience and epoch - best_epoch > patience:
+                print(f"Early stopping after {epoch} epochs (patience={patience})", flush=True)
+                break
             started = time.perf_counter()
             metrics = self._train_epoch(epoch)
             validation = evaluator.evaluate(
@@ -219,6 +226,7 @@ class Trainer:
             improved = score > self.best
             if improved:
                 self.best = score
+                best_epoch = epoch
                 write_json(self.output / "best_validation_metrics.json", validation)
             self.scheduler.step()
             entry = {

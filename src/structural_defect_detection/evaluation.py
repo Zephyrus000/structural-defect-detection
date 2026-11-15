@@ -1,6 +1,7 @@
 """Metrics on original images, grouped before dataset/domain aggregation."""
 
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -85,6 +86,21 @@ class Evaluator:
         self.config = config
         self.predictor = Predictor(model, config, device)
 
+    def _load_records(self, records, split):
+        def load(record):
+            source, row = record
+            if row["split"] != split:
+                raise ValueError("Evaluator received a sample from the wrong split")
+            return source, row, load_arrays(source, row)
+
+        # Bound prefetched arrays because each source image and mask is decoded at full resolution.
+        workers = min(self.config.runtime.workers, 4)
+        if workers:
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                yield from pool.map(load, records, buffersize=workers)
+        else:
+            yield from map(load, records)
+
     def evaluate(
         self, records, split: str, output: Path | None = None, save_predictions: bool = False
     ) -> dict:
@@ -94,10 +110,7 @@ class Evaluator:
             if output and save_predictions
             else None
         )
-        for source, row in records:
-            if row["split"] != split:
-                raise ValueError("Evaluator received a sample from the wrong split")
-            image, target, valid = load_arrays(source, row)
+        for source, row, (image, target, valid) in self._load_records(records, split):
             probability = self.predictor.predict(image)
             if not np.isfinite(probability).all():
                 raise FloatingPointError("Non-finite prediction")

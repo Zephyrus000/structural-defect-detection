@@ -69,6 +69,8 @@ class LossConfig:
     focal_alpha: float = 0.75
     focal_gamma: float = 2.0
     ph: PHConfig = PHConfig()
+    cldice_weight: float = 0.0
+    ecc_weight: float = 0.0
 
 
 @dataclasses.dataclass(frozen=True)
@@ -85,6 +87,7 @@ class TrainingConfig:
     optimizer: OptimizerConfig = OptimizerConfig()
     scheduler: str = "cosine"
     grad_clip: float = 1.0
+    early_stop_patience: int = 0
 
 
 @dataclasses.dataclass(frozen=True)
@@ -104,6 +107,7 @@ class RuntimeConfig:
     amp: bool = False
     amp_dtype: str = "bfloat16"
     threads: int = 4
+    gpu_tiles: bool = False
 
 
 @dataclasses.dataclass(frozen=True)
@@ -126,11 +130,24 @@ class ExperimentConfig:
 
     @property
     def config_hash(self) -> str:
-        return stable_hash(self.to_dict())
+        value = self.to_dict()
+        for key in ("cldice_weight", "ecc_weight"):
+            if value["loss"][key] == 0:
+                value["loss"].pop(key)
+        if not self.training.early_stop_patience:
+            value["training"].pop("early_stop_patience")
+        if not self.runtime.gpu_tiles:
+            value["runtime"].pop("gpu_tiles")
+        return stable_hash(value)
 
     @property
     def experiment_hash(self) -> str:
         value = self.to_dict()
+        for key in ("cldice_weight", "ecc_weight"):
+            if value["loss"][key] == 0:
+                value["loss"].pop(key)
+        if not self.training.early_stop_patience:
+            value["training"].pop("early_stop_patience")
         value.pop("runtime")
         value.pop("output")
         for source in value["data"]["sources"]:
@@ -237,6 +254,7 @@ def validate(cfg: ExperimentConfig) -> ExperimentConfig:
     require(
         t.epochs > 0 and t.effective_batch > 0 and t.seed >= 0, "Invalid training configuration"
     )
+    require(t.early_stop_patience >= 0, "Early stopping patience must be nonnegative")
     require(
         r.micro_batch > 0 and t.effective_batch % r.micro_batch == 0,
         "effective_batch must divide micro_batch",
@@ -244,6 +262,7 @@ def validate(cfg: ExperimentConfig) -> ExperimentConfig:
     require(r.workers >= 0 and r.threads > 0, "Invalid workers/threads")
     require(r.device == "cpu" or r.device.startswith("cuda"), "Device must be cpu or cuda[:index]")
     require(not r.amp or r.device.startswith("cuda"), "AMP is supported on CUDA only")
+    require(not r.gpu_tiles or r.device.startswith("cuda"), "GPU tiling requires CUDA")
     require(r.amp_dtype in ("float16", "bfloat16"), "AMP dtype must be float16 or bfloat16")
     require(t.scheduler in ("cosine", "constant"), "Unknown scheduler")
     require(
@@ -251,7 +270,13 @@ def validate(cfg: ExperimentConfig) -> ExperimentConfig:
         "Invalid optimizer",
     )
     require(
-        cfg.loss.dice_weight >= 0 and cfg.loss.focal_weight >= 0 and ph.weight >= 0,
+        min(
+            cfg.loss.dice_weight,
+            cfg.loss.focal_weight,
+            ph.weight,
+            cfg.loss.cldice_weight,
+            cfg.loss.ecc_weight,
+        ) >= 0,
         "Negative loss weight",
     )
     require(

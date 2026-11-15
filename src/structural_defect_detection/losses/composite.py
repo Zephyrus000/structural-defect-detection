@@ -6,6 +6,7 @@ from torch import nn
 from torch.nn import functional as F
 
 from ..config import LossConfig
+from .light_topology import euler_curve_loss, soft_cldice_loss
 from .topology import PersistentHomologyLoss
 
 
@@ -32,7 +33,12 @@ class CompositeLoss(nn.Module):
         eligible = counts > 0
         if not bool(eligible.any()):
             zero = logits.sum() * 0
-            return LossOutput(zero, {"dice": zero, "focal": zero, "ph": zero}, {"valid_samples": 0})
+            components = {"dice": zero, "focal": zero, "ph": zero}
+            if self.config.cldice_weight:
+                components["cldice"] = zero
+            if self.config.ecc_weight:
+                components["ecc"] = zero
+            return LossOutput(zero, components, {"valid_samples": 0})
         dice = 1 - (2 * (probability * target * weights).sum(axes) + 1) / (
             ((probability + target) * weights).sum(axes) + 1
         )
@@ -59,4 +65,11 @@ class CompositeLoss(nn.Module):
             + self.config.focal_weight * focal
             + statistics["ph_weight"] * ph_loss
         )
-        return LossOutput(total, {"dice": dice, "focal": focal, "ph": ph_loss}, statistics)
+        components = {"dice": dice, "focal": focal, "ph": ph_loss}
+        if self.config.cldice_weight:
+            components["cldice"] = soft_cldice_loss(probability, target, valid)
+            total = total + self.config.cldice_weight * components["cldice"]
+        if self.config.ecc_weight:
+            components["ecc"] = euler_curve_loss(probability, target, valid)
+            total = total + self.config.ecc_weight * components["ecc"]
+        return LossOutput(total, components, statistics)

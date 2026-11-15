@@ -1,0 +1,9 @@
+base: hybrid_ph.yaml
+data:
+  sources:
+    - name: cubit-inseg
+      root: data/CUBIT-InSeg
+      manifest: prepared/crack_v1/manifest.csv
+    - name: cif-dataset
+      root: data/cif-dataset
+      manifest: prepared/crack_v1/manifest.csv

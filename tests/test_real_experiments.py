@@ -5,7 +5,9 @@ import pytest
 import torch
 import yaml
 
+from structural_defect_detection.config import ConfigLoader
 from structural_defect_detection.engine import CheckpointManager, Trainer
+from structural_defect_detection.evaluation import Evaluator
 from structural_defect_detection.experiments import (
     ExperimentRunner,
     ResultAggregator,
@@ -38,6 +40,39 @@ def test_real_crop_resume_and_evaluation(real_config, monkeypatch):
     result = runner.evaluate(root / "continuous/checkpoints/best.pt", "test", root / "evaluation")
     assert result["overall"]["samples"] == 1
     assert list((root / "evaluation/predictions").glob("*_mask.png"))
+
+
+def test_early_stopping_restores_patience_after_resume(real_config, monkeypatch):
+    settings = real_config.to_dict()
+    settings["training"].update(epochs=12, early_stop_patience=5)
+    config = ConfigLoader.from_dict(settings)
+    scores = (0.2, 0.2, 0.3, 0.3, 0.2, 0.3, 0.2, 0.1)
+    validation_scores = iter(scores)
+
+    def evaluate(self, records, split, output, save_predictions=False):
+        score = 0.3 if save_predictions else next(validation_scores)
+        return {"selection": {"crack_dice": score}}
+
+    monkeypatch.setattr(Evaluator, "evaluate", evaluate)
+    runner = ExperimentRunner(config)
+    with monkeypatch.context() as patch:
+        train_epoch = Trainer._train_epoch
+
+        def interrupt(self, epoch):
+            if epoch == 5:
+                raise RuntimeError("interrupted")
+            return train_epoch(self, epoch)
+
+        patch.setattr(Trainer, "_train_epoch", interrupt)
+        with pytest.raises(RuntimeError, match="interrupted"):
+            runner.run("early-stop")
+
+    checkpoint = Path(config.output.root) / "early-stop/checkpoints/last.pt"
+    result = runner.run("early-stop", resume=checkpoint)
+    assert [entry["validation_dice"] for entry in result["history"]] == list(scores)
+    assert CheckpointManager.load(checkpoint)["next_epoch"] == 8
+    assert CheckpointManager.load(checkpoint.with_name("best.pt"))["next_epoch"] == 3
+    assert len(runner.run("early-stop", resume=checkpoint)["history"]) == 8
 
 
 @pytest.mark.parametrize("method", ["grid", "random"])

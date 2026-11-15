@@ -73,6 +73,25 @@ Có thêm adapters `paired` cho ảnh/mask trùng relative stem và `deepcrack` 
 
 ## 4. Train, resume và đánh giá
 
+Baseline hiện tại dùng CUBIT-InSeg prepared `crack_v1`, CNN-only và Dice + Focal. Thêm PH sau khi baseline ổn định để đo riêng tác động lên độ liên tục và thời gian train.
+
+```powershell
+.\.venv\Scripts\sdd.exe train --config configs/experiments/cubit_cnn_no_ph.yaml --machine configs/machines/rtx3060_12gb.yaml --run-id cubit-cnn-no-ph-seed42
+```
+
+Profile RTX 3060 bật sẵn BF16 trong training, 4 worker đọc dữ liệu và tiling batch 8. Validation nạp trước ảnh và mask bằng tối đa 4 luồng CPU, cắt và ghép tile trên GPU, rồi tính metric ở kích thước ảnh gốc.
+
+Hai cấu hình thử nghiệm tách riêng tác động của topology trên cùng baseline CUBIT:
+
+| Config | Loss |
+|---|---|
+| [cubit_cnn_cldice.yaml](configs/experiments/cubit_cnn_cldice.yaml) | Dice + Focal + 0.1 × soft-clDice |
+| [cubit_cnn_ecc.yaml](configs/experiments/cubit_cnn_ecc.yaml) | Dice + Focal + 0.01 × Euler Characteristic Curve loss |
+
+Để chạy đối chứng, thay `--config` và dùng `--run-id` riêng trong lệnh baseline. Cả hai giữ PH bằng 0. Soft-clDice dùng skeleton mềm và bỏ phần loss topology trên crop không có skeleton đích. Vùng ignore bị mask trước phép morphology, nên biên ignore có thể cắt skeleton. ECC so đường cong superlevel tại năm ngưỡng từ 0.2 tới 0.8, trên cửa sổ tối đa 32×32 không chồng lấn có toàn bộ pixel hợp lệ. ECC dùng quy ước ô vuông đóng nên hai pixel chạm góc được tính là nối nhau. Sai số ECC có thể triệt tiêu giữa thành phần liên thông và lỗ, kể cả khi vị trí crack sai. Hai trọng số trên là điểm bắt đầu cho ablation. [Soft-clDice](https://arxiv.org/abs/2003.07311) · [Differentiable ECC](https://arxiv.org/abs/2510.20271)
+
+Các config dưới đây dùng cho đối chứng và resume:
+
 ```powershell
 sdd train --config configs/experiments/hybrid_ph.yaml --machine configs/machines/rtx3070ti_8gb.yaml --run-id cubit-ph-seed42
 sdd train --config configs/experiments/hybrid_no_ph.yaml --machine configs/machines/rtx3070ti_8gb.yaml --run-id cubit-no-ph-seed42
@@ -83,7 +102,7 @@ Checkpoint selection dùng macro dataset mean của per-image validation Dice. T
 
 Override tường minh: `--set training.seed=17`, `--set training.epochs=30`. Cấu hình mới tạo run mới. Resume yêu cầu experiment/data/AMP tương thích và thực hiện ở ranh giới epoch; CLI không kéo dài run cũ bằng cách đổi epochs.
 
-Machine YAML chỉ đổi `runtime`, `output.root` và dataset `roots`. Effective batch phải chia hết cho micro-batch; accumulation được suy ra. Các profile 8/12/24 GB có micro-batch 1/2/4, effective batch 8; cần đo trên hardware thực. CNN dùng GroupNorm để giảm phụ thuộc micro-batch. AMP mặc định `bfloat16`; `runtime.amp_dtype: float16` là lựa chọn tường minh có GradScaler. Dtype được lưu và kiểm khi resume.
+Machine YAML chỉ đổi `runtime`, `output.root` và dataset `roots`. Effective batch phải chia hết cho micro-batch; accumulation được suy ra. Các profile 8/12/24 GB có micro-batch 1/8/4 và effective batch mặc định là 8. CNN dùng GroupNorm để giảm phụ thuộc micro-batch. AMP mặc định `bfloat16`; `runtime.amp_dtype: float16` là lựa chọn tường minh có GradScaler. Dtype được lưu và kiểm khi resume.
 
 OOM/non-finite làm run failed, không tự giảm resolution/bỏ PH. `--retry` dành cho run failed; có checkpoint cuối epoch thì resume từ đó. Run lock chống trùng output; các run CUDA từ cùng checkout dùng device lock. Không quản lý các chương trình GPU ngoài framework hoặc distributed lock giữa máy khác nhau. Khi process bị kill cứng, kiểm process đã dừng trước khi dọn `.lock`/đánh dấu run failed; framework không tự cướp lock.
 
