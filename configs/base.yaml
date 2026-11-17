@@ -38,8 +38,9 @@ loss:
     boundary_policy: closed_window
 training:
   seed: 42
-  epochs: 20
-  effective_batch: 8
+  epochs: 100
+  effective_batch: 64
+  early_stop_patience: 25
   optimizer:
     lr: 0.0003
     weight_decay: 0.01

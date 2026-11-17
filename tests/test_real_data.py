@@ -125,13 +125,50 @@ def test_tile_alignment_on_real_rgb(annotated_crops, real_config, shape, batch_s
     cfg = replace(
         real_config,
         data=replace(real_config.data, size=(32, 32), mean=(0.0, 0.0, 0.0), std=(1.0, 1.0, 1.0)),
-        runtime=replace(real_config.runtime, micro_batch=3, device=str(device), gpu_tiles=gpu_tiles),
+        runtime=replace(
+            real_config.runtime, micro_batch=3, device=str(device), gpu_tiles=gpu_tiles
+        ),
     )
     rgb = annotated_crops[0][0][: shape[0], : shape[1]]
     result = Predictor(PixelModel(), cfg, device).predict(rgb)
     expected = torch.tensor(rgb[:, :, 0].astype(float) / 255).sigmoid().numpy()
     np.testing.assert_allclose(result, expected, atol=1e-6)
     assert batches == batch_sizes
+
+
+@pytest.mark.parametrize(
+    ("mode", "gpu_tiles"), [("resize", False), ("tile", False), ("tile", True)]
+)
+def test_bf16_inference_preserves_fp32_normalization(annotated_crops, real_config, mode, gpu_tiles):
+    if not torch.cuda.is_available() or not torch.cuda.is_bf16_supported():
+        pytest.skip("CUDA BF16 is required")
+    device = torch.device("cuda:0")
+    cfg = replace(
+        real_config,
+        data=replace(real_config.data, size=(32, 32)),
+        evaluation=replace(real_config.evaluation, mode=mode),
+        runtime=replace(
+            real_config.runtime,
+            device=str(device),
+            amp=True,
+            amp_dtype="bfloat16",
+            micro_batch=4,
+            gpu_tiles=gpu_tiles,
+        ),
+    )
+    model = build_model(cfg.model).to(device)
+    dtypes = []
+
+    def record_dtype(module, inputs, output):
+        dtypes.append((type(module), inputs[0].dtype, output.dtype))
+
+    model.encoder.stages[0].layers[0].register_forward_hook(record_dtype)
+    model.encoder.stages[0].layers[1].register_forward_hook(record_dtype)
+    probability = Predictor(model, cfg, device).predict(annotated_crops[0][0])
+    assert (torch.nn.Conv2d, torch.float32, torch.bfloat16) in dtypes
+    assert (torch.nn.GroupNorm, torch.bfloat16, torch.float32) in dtypes
+    assert probability.dtype == np.float32 and probability.shape == annotated_crops[0][1].shape
+    assert np.isfinite(probability).all() and ((0 <= probability) & (probability <= 1)).all()
 
 
 @pytest.mark.parametrize("variant", ["standard", "efficient", "cnn_only"])

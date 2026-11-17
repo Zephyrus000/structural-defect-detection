@@ -1,6 +1,7 @@
 """Build and audit crack_v1 manifests from the local CUBIT and CIF full releases.
 
-Run from the repository root with the project environment and PyArrow installed.
+Run from the repository root with the project environment. PyArrow is required for CIF only.
+For CUBIT alone, pass --config configs/experiments/cubit_cnn_no_ph.yaml.
 """
 
 import argparse
@@ -12,7 +13,6 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
-import pyarrow.parquet as pq
 import yaml
 from eda_cubit_inseg import parse_annotations, save_csv
 from PIL import Image
@@ -50,6 +50,8 @@ def cubit_records(root, classes):
 
 
 def cif_records(root):
+    import pyarrow.parquet as pq
+
     columns = [
         "image_id", "image", "file_name", "width", "height", "source_collection",
         "site", "structure", "component_id", "material", "tile_row", "tile_col",
@@ -266,11 +268,12 @@ def write_reports(output, records, mappings):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--config", type=Path, default=CONFIG)
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--audit-dir", type=Path, default=Path(".cache/cubit-cif-audit-v1"))
     args = parser.parse_args()
     mappings = yaml.safe_load(MAPPING.read_text(encoding="utf-8"))
-    config = ConfigLoader.load(CONFIG)
+    config = ConfigLoader.load(args.config)
     destinations = [
         (source, Path(source.root).resolve(), safe_path(Path(source.root), source.manifest))
         for source in config.data.sources

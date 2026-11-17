@@ -1,0 +1,107 @@
+{
+  "created_at_utc": "2026-11-16T16:15:40.407028+00:00",
+  "dataset": "Local CUBIT-InSeg / crack_v1",
+  "verdict": "CONDITIONAL_FOR_PIPELINE_PILOT; NOT_READY_FOR_INDEPENDENT_BENCHMARK_CLAIMS",
+  "scope": {
+    "raw_images": 6996,
+    "raw_labels": 6996,
+    "prepared_images": 3139,
+    "crop_sample_images": 128,
+    "crop_sample_count": 2560,
+    "near_duplicate_image_comparisons": 24468510
+  },
+  "integrity": {
+    "current_raw_image_and_label_hashes_match_prior_preparation": true,
+    "source_hash_rows_checked": 6996,
+    "root_and_prepared_manifests_match": true,
+    "prepared_full_validation_reused_from": "data\\CUBIT-InSeg\\prepared\\crack_v1\\audit\\validation.json",
+    "prepared_validation_sha256": "aea4d4f4100c8384ea7919c08705bee22687bd235c478b24daa55eabff066595",
+    "manifest_file_sha256": "320da6f4f78d0964efed7f652bf75ed2dcba9932b577f6af2e8b6240bcfee741",
+    "mapping_sha256": "e2ccc9a2819c91dc50ece7aaabef31800e8dafaebf301df50c123c1931ccfd9e"
+  },
+  "findings": [
+    {
+      "severity": "HIGH",
+      "id": "split_visual_overlap",
+      "evidence": {
+        "prepared_cross_split_candidates": 20,
+        "train_test_pairs": 12,
+        "train_validation_pairs": 8,
+        "distinct_images": 37,
+        "visual_examples": 4
+      },
+      "action": "Review candidate scene groups and establish a separate versioned group-independent evaluation protocol."
+    },
+    {
+      "severity": "HIGH",
+      "id": "annotation_coverage_unverified",
+      "evidence": "full_crack/background is an explicit pipeline assumption; no verified physical structure/session IDs.",
+      "action": "Verify annotation completeness and capture-group metadata before generalization claims."
+    },
+    {
+      "severity": "MEDIUM",
+      "id": "sparse_training_exposure",
+      "evidence": {
+        "blank_crops": 1879,
+        "total_sample_crops": 2560,
+        "blank_rate": 0.733984375,
+        "bootstrap_interval": [
+          0.7121821275515259,
+          0.7559195866775664
+        ]
+      },
+      "action": "Compare the current sampler with a versioned positive-aware/background-mixed pilot; do not infer accuracy from crop rates."
+    },
+    {
+      "severity": "MEDIUM",
+      "id": "positive_only_evaluation_population",
+      "evidence": "All3139 retained images have annotated crack; no verified negative-image population.",
+      "action": "Audit a separate negative/ignore protocol rather than labeling spalling-only images as crack-free."
+    },
+    {
+      "severity": "MEDIUM",
+      "id": "whole_image_quarantine_cost",
+      "evidence": {
+        "quarantined_samples": 18,
+        "crack_images_affected": 15,
+        "other_positive_raster_instances": 280,
+        "other_positive_union_pixels": 951363
+      },
+      "action": "Review the18 annotations and document any repair in a new dataset version."
+    }
+  ],
+  "raw_exact_duplicates": {
+    "groups": 589,
+    "cross_split_groups": 222,
+    "prepared_members": 0
+  },
+  "transforms": {
+    "train_mode": "crop",
+    "size": [
+      256,
+      256
+    ],
+    "augment": true,
+    "augmentation": "horizontal and vertical flips only",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "evaluation_mode": "tile",
+    "evaluation_overlap": 32,
+    "validation_tiles_per_epoch": 83720,
+    "resolution_note": "Current crop+tile pipeline uses native-resolution pixels; no downsize interpolation in active modes. The resize branch and model-internal thin-feature retention were not evaluated."
+  },
+  "limits": [
+    "Near-duplicate search is heuristic, not exhaustive for crops/perspective/rotations.",
+    "Annotation completeness, actual group IDs, model accuracy and image-level deployment false alarms remain unverified.",
+    "Current full prepared validation was reused from the immediately preceding mapping task; this audit refreshed raw hashes and thumbnail decodes, not every full-resolution prepared pixel again.",
+    "No source images, labels, manifests, configurations or model weights were changed."
+  ]
+}

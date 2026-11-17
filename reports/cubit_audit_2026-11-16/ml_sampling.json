@@ -1,0 +1,283 @@
+{
+  "scope": "Training-only crop exposure under the current hybrid_ecc_no_ph configuration; no model training or test-label model probe.",
+  "config": "configs/experiments/hybrid_ecc_no_ph.yaml",
+  "config_hash": "96b95b16201e40a893c22c35734893528e2ba05cb7ccdb5fb65bbe6d26e3ce0c",
+  "manifest_file_sha256": "320da6f4f78d0964efed7f652bf75ed2dcba9932b577f6af2e8b6240bcfee741",
+  "population": {
+    "train_images": 2523,
+    "validation_images": 299,
+    "train_positive_fraction": 0.007695278460386665
+  },
+  "sampling": {
+    "selection": "32 images without replacement from each foreground-density rank quartile, random.Random(42); all20 configured epoch crops per image",
+    "selection_seed": 42,
+    "transform_seed": 42,
+    "images": 128,
+    "crops": 2560,
+    "epochs": 20,
+    "actual_transform_checks": 16,
+    "self_check": "exact crop coordinates, post-flip target arrays and foreground/valid counts matched actual SegmentationDataset.transform on16 cases"
+  },
+  "blank_crop_rate_unweighted": 0.733984375,
+  "blank_crop_rate_population_weighted": 0.7340380994847404,
+  "blank_crop_rate_95pct_stratified_image_bootstrap_interval": [
+    0.7121821275515259,
+    0.7559195866775664
+  ],
+  "bootstrap_note": "2,000 replicates resampling images within strata; holds the20 configured epoch crops fixed; does not represent annotation uncertainty or new-site generalization.",
+  "per_stratum": [
+    {
+      "stratum": 0,
+      "population_images": 631,
+      "sample_images": 32,
+      "blank_crop_rate": 0.890625,
+      "population_foreground_fraction_range": [
+        0.0006561481481481481,
+        0.004423777777777778
+      ]
+    },
+    {
+      "stratum": 1,
+      "population_images": 631,
+      "sample_images": 32,
+      "blank_crop_rate": 0.7796875,
+      "population_foreground_fraction_range": [
+        0.004424666666666667,
+        0.0063791111111111114
+      ]
+    },
+    {
+      "stratum": 2,
+      "population_images": 631,
+      "sample_images": 32,
+      "blank_crop_rate": 0.6671874999999999,
+      "population_foreground_fraction_range": [
+        0.006379481481481482,
+        0.009191925925925926
+      ]
+    },
+    {
+      "stratum": 3,
+      "population_images": 630,
+      "sample_images": 32,
+      "blank_crop_rate": 0.5984375,
+      "population_foreground_fraction_range": [
+        0.009197851851851851,
+        0.05644814814814815
+      ]
+    }
+  ],
+  "per_epoch": [
+    {
+      "epoch": 0,
+      "blank_crops": 93,
+      "crops": 128
+    },
+    {
+      "epoch": 1,
+      "blank_crops": 97,
+      "crops": 128
+    },
+    {
+      "epoch": 2,
+      "blank_crops": 95,
+      "crops": 128
+    },
+    {
+      "epoch": 3,
+      "blank_crops": 98,
+      "crops": 128
+    },
+    {
+      "epoch": 4,
+      "blank_crops": 96,
+      "crops": 128
+    },
+    {
+      "epoch": 5,
+      "blank_crops": 96,
+      "crops": 128
+    },
+    {
+      "epoch": 6,
+      "blank_crops": 92,
+      "crops": 128
+    },
+    {
+      "epoch": 7,
+      "blank_crops": 105,
+      "crops": 128
+    },
+    {
+      "epoch": 8,
+      "blank_crops": 96,
+      "crops": 128
+    },
+    {
+      "epoch": 9,
+      "blank_crops": 95,
+      "crops": 128
+    },
+    {
+      "epoch": 10,
+      "blank_crops": 88,
+      "crops": 128
+    },
+    {
+      "epoch": 11,
+      "blank_crops": 95,
+      "crops": 128
+    },
+    {
+      "epoch": 12,
+      "blank_crops": 90,
+      "crops": 128
+    },
+    {
+      "epoch": 13,
+      "blank_crops": 89,
+      "crops": 128
+    },
+    {
+      "epoch": 14,
+      "blank_crops": 92,
+      "crops": 128
+    },
+    {
+      "epoch": 15,
+      "blank_crops": 94,
+      "crops": 128
+    },
+    {
+      "epoch": 16,
+      "blank_crops": 88,
+      "crops": 128
+    },
+    {
+      "epoch": 17,
+      "blank_crops": 93,
+      "crops": 128
+    },
+    {
+      "epoch": 18,
+      "blank_crops": 94,
+      "crops": 128
+    },
+    {
+      "epoch": 19,
+      "blank_crops": 93,
+      "crops": 128
+    }
+  ],
+  "foreground_pixels_per_crop": {
+    "n": 2560,
+    "min": 0.0,
+    "p05": 0.0,
+    "p25": 0.0,
+    "median": 0.0,
+    "p75": 179.75,
+    "p95": 2712.949999999995,
+    "max": 21915.0,
+    "mean": 557.109375
+  },
+  "foreground_fraction_per_crop": {
+    "n": 2560,
+    "min": 0.0,
+    "p05": 0.0,
+    "p25": 0.0,
+    "median": 0.0,
+    "p75": 0.002742767333984375,
+    "p95": 0.041396331787109296,
+    "max": 0.3343963623046875,
+    "mean": 0.008500814437866211
+  },
+  "positive_crop_foreground_pixels": {
+    "n": 681,
+    "min": 1.0,
+    "p05": 142.0,
+    "p25": 933.0,
+    "median": 1876.0,
+    "p75": 2531.0,
+    "p95": 4525.0,
+    "max": 21915.0,
+    "mean": 2094.273127753304
+  },
+  "images_with_no_positive_crop_in20_epochs": 5,
+  "sample_image_foreground_fraction": {
+    "n": 128,
+    "min": 0.001054962962962963,
+    "p05": 0.0020130555555555557,
+    "p25": 0.004543907407407407,
+    "median": 0.006420888888888889,
+    "p75": 0.009166351851851851,
+    "p95": 0.01927879999999996,
+    "max": 0.03931474074074074,
+    "mean": 0.007906272569444445
+  },
+  "unique_image_fraction_seen_over20_epochs": {
+    "n": 128,
+    "min": 0.0841205925925926,
+    "p05": 0.08731720740740741,
+    "p25": 0.09063951851851852,
+    "median": 0.0928035925925926,
+    "p75": 0.0946862037037037,
+    "p95": 0.09698977407407408,
+    "max": 0.09709037037037037,
+    "mean": 0.09247744444444445
+  },
+  "unique_foreground_fraction_seen_over20_epochs": {
+    "n": 128,
+    "min": 0.0,
+    "p05": 0.005001454169512941,
+    "p25": 0.060637078417932075,
+    "median": 0.09455443906920925,
+    "p75": 0.1331346558964145,
+    "p95": 0.19632296721810732,
+    "max": 0.42970525766665424,
+    "mean": 0.09957875849209077
+  },
+  "current_transforms": {
+    "train_mode": "crop",
+    "size": [
+      256,
+      256
+    ],
+    "augment": true,
+    "augmentation": "horizontal and vertical flips only",
+    "normalization_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "normalization_std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "evaluation_mode": "tile",
+    "evaluation_overlap": 32,
+    "validation_tiles_per_epoch": 83720,
+    "resolution_note": "Current crop+tile pipeline uses native-resolution pixels; no downsize interpolation in active modes. The resize branch and model-internal thin-feature retention were not evaluated."
+  },
+  "seconds": 6.307136900002661,
+  "limitations": [
+    "The128image sample is stratified by annotation occupancy, not structure or capture session; those metadata are missing.",
+    "A blank crop means no annotated crack pixels, not a verified defect-free negative.",
+    "Measurements describe this fixed seed and20 configured epochs; they are not model accuracy or a benchmark result."
+  ],
+  "blank_crops": 1879,
+  "positive_crops": 681,
+  "images_with_no_positive_crop_in20_epochs_ids": [
+    "train/CR1_146",
+    "train/CR1_1880",
+    "train/CR1_2810",
+    "train/CR1_3125",
+    "train/CR1_92"
+  ],
+  "prepared_inventory_ground_truth_positive_images_by_split": {
+    "train": 2523,
+    "validation": 299,
+    "test": 317
+  },
+  "prepared_inventory_empty_ground_truth_image_count": 0
+}

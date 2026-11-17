@@ -1,0 +1,3837 @@
+{
+  "affected_samples": 18,
+  "signed_area_flag_count": 13,
+  "collinear_signed_flags": 12,
+  "noncollinear_signed_flags": 1,
+  "signed_flags_with_positive_raster": 0,
+  "signed_flags_with_zero_raster": 13,
+  "five_invalid_mask_samples": [
+    "train/CR1_1446",
+    "train/CR1_1447",
+    "train/CR1_1448",
+    "train/CR1_2777",
+    "train/CR1_2778"
+  ],
+  "affected_samples_with_other_valid_annotations": 18,
+  "affected_samples_with_nonzero_valid_union": 18,
+  "records": [
+    {
+      "sample_id": "train/CR1_1446",
+      "image": "train/images/CR1_1446.JPG",
+      "label": "train/labels/CR1_1446.txt",
+      "decision": "invalid_mask:instance_rasterizes_to_zero_pixels",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 34,
+      "parser_issues": [],
+      "valid_annotation_count": 34,
+      "valid_annotation_union_pixels": 56112,
+      "zero_raster_instances": [
+        {
+          "line": 33,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.414800000035693e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false,
+          "polygon_area_pixels": 1.0009980000048184,
+          "pixel_bbox_xywh": [
+            4440.001499999999,
+            3.999,
+            9.0,
+            1.0020000000000002
+          ]
+        }
+      ],
+      "signed_area_flags": [],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 562,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.26629999977979e-05,
+          "coco_raster_pixels": 850,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 1078,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00018674187057854397,
+          "coco_raster_pixels": 2524,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 1016,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00013415007101968968,
+          "coco_raster_pixels": 1802,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 386,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.962975953366367e-05,
+          "coco_raster_pixels": 806,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 975,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001992241669199757,
+          "coco_raster_pixels": 2692,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 722,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017703312848027508,
+          "coco_raster_pixels": 2395,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 194,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.4001777000101114e-05,
+          "coco_raster_pixels": 730,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 873,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017907398094507698,
+          "coco_raster_pixels": 2415,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 165,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.5372962998204684e-05,
+          "coco_raster_pixels": 343,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 1914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003492597419665344,
+          "coco_raster_pixels": 4711,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 259,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.447924049382323e-05,
+          "coco_raster_pixels": 465,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 175,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7664721997666675e-05,
+          "coco_raster_pixels": 375,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017681879697306613,
+          "coco_raster_pixels": 2384,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014369584997098173,
+          "coco_raster_pixels": 1939,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 327,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7813130031972833e-05,
+          "coco_raster_pixels": 373,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 415,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.336601949717078e-05,
+          "coco_raster_pixels": 582,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 746,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.096137057440501e-05,
+          "coco_raster_pixels": 1231,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010985631443816146,
+          "coco_raster_pixels": 1486,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 492,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.125663050937646e-05,
+          "coco_raster_pixels": 828,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 383,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.633288800055425e-05,
+          "coco_raster_pixels": 763,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 1558,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0002460003339592731,
+          "coco_raster_pixels": 3323,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 45,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.184426000364283e-06,
+          "coco_raster_pixels": 57,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 118,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.3555667003117833e-05,
+          "coco_raster_pixels": 184,
+          "parser_rejected": false
+        },
+        {
+          "line": 24,
+          "class_id": 0,
+          "vertices": 283,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.952053749818219e-05,
+          "coco_raster_pixels": 670,
+          "parser_rejected": false
+        },
+        {
+          "line": 25,
+          "class_id": 0,
+          "vertices": 570,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.541070501484228e-05,
+          "coco_raster_pixels": 1288,
+          "parser_rejected": false
+        },
+        {
+          "line": 26,
+          "class_id": 0,
+          "vertices": 248,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.703729650004876e-05,
+          "coco_raster_pixels": 1040,
+          "parser_rejected": false
+        },
+        {
+          "line": 27,
+          "class_id": 0,
+          "vertices": 825,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.856455499779315e-05,
+          "coco_raster_pixels": 1330,
+          "parser_rejected": false
+        },
+        {
+          "line": 28,
+          "class_id": 0,
+          "vertices": 608,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010252331350457666,
+          "coco_raster_pixels": 1383,
+          "parser_rejected": false
+        },
+        {
+          "line": 29,
+          "class_id": 0,
+          "vertices": 3340,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0005203721860169708,
+          "coco_raster_pixels": 7022,
+          "parser_rejected": false
+        },
+        {
+          "line": 30,
+          "class_id": 0,
+          "vertices": 651,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.033183399864697e-05,
+          "coco_raster_pixels": 1215,
+          "parser_rejected": false
+        },
+        {
+          "line": 31,
+          "class_id": 0,
+          "vertices": 3912,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00047897547966613274,
+          "coco_raster_pixels": 6467,
+          "parser_rejected": false
+        },
+        {
+          "line": 32,
+          "class_id": 0,
+          "vertices": 1176,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014852109150176318,
+          "coco_raster_pixels": 1999,
+          "parser_rejected": false
+        },
+        {
+          "line": 33,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.414800000035693e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false
+        },
+        {
+          "line": 34,
+          "class_id": 0,
+          "vertices": 169,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.274003700004524e-05,
+          "coco_raster_pixels": 440,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 34,
+      "positive_raster_annotation_count": 33
+    },
+    {
+      "sample_id": "train/CR1_1447",
+      "image": "train/images/CR1_1447.JPG",
+      "label": "train/labels/CR1_1447.txt",
+      "decision": "invalid_mask:instance_rasterizes_to_zero_pixels",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 32,
+      "parser_issues": [],
+      "valid_annotation_count": 32,
+      "valid_annotation_union_pixels": 54039,
+      "zero_raster_instances": [
+        {
+          "line": 31,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.431500000012331e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false,
+          "polygon_area_pixels": 1.0032525000016648,
+          "pixel_bbox_xywh": [
+            4140.0,
+            3.999,
+            9.0,
+            1.0020000000000002
+          ]
+        }
+      ],
+      "signed_area_flags": [],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 143,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.2847203499977145e-05,
+          "coco_raster_pixels": 173,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 1078,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00018674436995524957,
+          "coco_raster_pixels": 2524,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 1016,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001341492429993707,
+          "coco_raster_pixels": 1802,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 386,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.963142544374023e-05,
+          "coco_raster_pixels": 806,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 975,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00019922233138913725,
+          "coco_raster_pixels": 2692,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 722,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001770357965256153,
+          "coco_raster_pixels": 2395,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 873,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001790738170370787,
+          "coco_raster_pixels": 2415,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 165,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.5368963001426437e-05,
+          "coco_raster_pixels": 343,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 1914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003492590739710977,
+          "coco_raster_pixels": 4711,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 259,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.448207499801015e-05,
+          "coco_raster_pixels": 465,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 175,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7672055498584314e-05,
+          "coco_raster_pixels": 375,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017681796194324306,
+          "coco_raster_pixels": 2384,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014369585284157438,
+          "coco_raster_pixels": 1939,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 415,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.336551752714968e-05,
+          "coco_raster_pixels": 582,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 746,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.096137455344433e-05,
+          "coco_raster_pixels": 1231,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 927,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.577411100281097e-05,
+          "coco_raster_pixels": 1291,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010985298001742194,
+          "coco_raster_pixels": 1486,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 492,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.126479599544155e-05,
+          "coco_raster_pixels": 828,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 383,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.633272200356032e-05,
+          "coco_raster_pixels": 763,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 1558,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0002460001620647745,
+          "coco_raster_pixels": 3323,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 45,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.185258999811481e-06,
+          "coco_raster_pixels": 57,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 118,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.355583350104439e-05,
+          "coco_raster_pixels": 184,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 283,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.952120399792648e-05,
+          "coco_raster_pixels": 670,
+          "parser_rejected": false
+        },
+        {
+          "line": 24,
+          "class_id": 0,
+          "vertices": 570,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.540786999906459e-05,
+          "coco_raster_pixels": 1288,
+          "parser_rejected": false
+        },
+        {
+          "line": 25,
+          "class_id": 0,
+          "vertices": 457,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.819014800034772e-05,
+          "coco_raster_pixels": 786,
+          "parser_rejected": false
+        },
+        {
+          "line": 26,
+          "class_id": 0,
+          "vertices": 608,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010251948151207557,
+          "coco_raster_pixels": 1383,
+          "parser_rejected": false
+        },
+        {
+          "line": 27,
+          "class_id": 0,
+          "vertices": 3340,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0005203601864423035,
+          "coco_raster_pixels": 7022,
+          "parser_rejected": false
+        },
+        {
+          "line": 28,
+          "class_id": 0,
+          "vertices": 651,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.033133400038196e-05,
+          "coco_raster_pixels": 1215,
+          "parser_rejected": false
+        },
+        {
+          "line": 29,
+          "class_id": 0,
+          "vertices": 3912,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004789669786759987,
+          "coco_raster_pixels": 6467,
+          "parser_rejected": false
+        },
+        {
+          "line": 30,
+          "class_id": 0,
+          "vertices": 1176,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014852175949719992,
+          "coco_raster_pixels": 1999,
+          "parser_rejected": false
+        },
+        {
+          "line": 31,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.431500000012331e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false
+        },
+        {
+          "line": 32,
+          "class_id": 0,
+          "vertices": 169,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.2741036499750464e-05,
+          "coco_raster_pixels": 440,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 32,
+      "positive_raster_annotation_count": 31
+    },
+    {
+      "sample_id": "train/CR1_1448",
+      "image": "train/images/CR1_1448.JPG",
+      "label": "train/labels/CR1_1448.txt",
+      "decision": "invalid_mask:instance_rasterizes_to_zero_pixels",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 32,
+      "parser_issues": [],
+      "valid_annotation_count": 32,
+      "valid_annotation_union_pixels": 53257,
+      "zero_raster_instances": [
+        {
+          "line": 31,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.414800000035693e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false,
+          "polygon_area_pixels": 1.0009980000048184,
+          "pixel_bbox_xywh": [
+            3839.9985,
+            3.999,
+            9.0,
+            1.0020000000000002
+          ]
+        }
+      ],
+      "signed_area_flags": [],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 1078,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00018674220348202653,
+          "coco_raster_pixels": 2524,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 569,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.163170499691063e-05,
+          "coco_raster_pixels": 965,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 386,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.963025900257435e-05,
+          "coco_raster_pixels": 806,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 975,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00019922333649446955,
+          "coco_raster_pixels": 2692,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 722,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017703513051969821,
+          "coco_raster_pixels": 2395,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 873,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001790721475032342,
+          "coco_raster_pixels": 2415,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 165,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.536763000193787e-05,
+          "coco_raster_pixels": 343,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 1914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00034925907297633785,
+          "coco_raster_pixels": 4711,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 259,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.448424099783409e-05,
+          "coco_raster_pixels": 465,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 175,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7664721997666675e-05,
+          "coco_raster_pixels": 375,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 914,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017681946198422338,
+          "coco_raster_pixels": 2384,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001436940199255332,
+          "coco_raster_pixels": 1939,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 415,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.336585251962788e-05,
+          "coco_raster_pixels": 582,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 746,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.096236797745405e-05,
+          "coco_raster_pixels": 1231,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 1074,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00011221961295859728,
+          "coco_raster_pixels": 1513,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 411,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.092707297331799e-05,
+          "coco_raster_pixels": 551,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 832,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010984964897886584,
+          "coco_raster_pixels": 1486,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 492,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.125512900467811e-05,
+          "coco_raster_pixels": 828,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 383,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.63345550013139e-05,
+          "coco_raster_pixels": 763,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 1558,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000246008834380973,
+          "coco_raster_pixels": 3323,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 45,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.186258999894221e-06,
+          "coco_raster_pixels": 57,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 118,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.3555332996517677e-05,
+          "coco_raster_pixels": 184,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 283,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.9517703002877056e-05,
+          "coco_raster_pixels": 670,
+          "parser_rejected": false
+        },
+        {
+          "line": 24,
+          "class_id": 0,
+          "vertices": 570,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.540086848858209e-05,
+          "coco_raster_pixels": 1288,
+          "parser_rejected": false
+        },
+        {
+          "line": 25,
+          "class_id": 0,
+          "vertices": 2695,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000418113222984573,
+          "coco_raster_pixels": 5641,
+          "parser_rejected": false
+        },
+        {
+          "line": 26,
+          "class_id": 0,
+          "vertices": 608,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010251048149712005,
+          "coco_raster_pixels": 1383,
+          "parser_rejected": false
+        },
+        {
+          "line": 27,
+          "class_id": 0,
+          "vertices": 651,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.033449849660258e-05,
+          "coco_raster_pixels": 1215,
+          "parser_rejected": false
+        },
+        {
+          "line": 28,
+          "class_id": 0,
+          "vertices": 3912,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00047896915386047567,
+          "coco_raster_pixels": 6467,
+          "parser_rejected": false
+        },
+        {
+          "line": 29,
+          "class_id": 0,
+          "vertices": 1176,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014852192749970072,
+          "coco_raster_pixels": 1999,
+          "parser_rejected": false
+        },
+        {
+          "line": 30,
+          "class_id": 0,
+          "vertices": 620,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00012028914999984153,
+          "coco_raster_pixels": 1622,
+          "parser_rejected": false
+        },
+        {
+          "line": 31,
+          "class_id": 0,
+          "vertices": 12,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.414800000035693e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false
+        },
+        {
+          "line": 32,
+          "class_id": 0,
+          "vertices": 169,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.274253650009662e-05,
+          "coco_raster_pixels": 440,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 32,
+      "positive_raster_annotation_count": 31
+    },
+    {
+      "sample_id": "train/CR1_2035",
+      "image": "train/images/CR1_2035.JPG",
+      "label": "train/labels/CR1_2035.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 6, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 7,
+      "parser_issues": [
+        {
+          "line": 6,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 6,
+      "valid_annotation_union_pixels": 53072,
+      "zero_raster_instances": [
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            418.0005,
+            3.999,
+            3.0015000000000214,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            418.0005,
+            3.999,
+            3.0015000000000214,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 3241,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.001385600513231111,
+          "coco_raster_pixels": 18712,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 466,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00015793201900748954,
+          "coco_raster_pixels": 2131,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 3610,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0016843765763496776,
+          "coco_raster_pixels": 22738,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 216,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.9256518000001526e-05,
+          "coco_raster_pixels": 665,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 1122,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000594075590500065,
+          "coco_raster_pixels": 8011,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 202,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.047840700000237e-05,
+          "coco_raster_pixels": 815,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 6,
+      "positive_raster_annotation_count": 6
+    },
+    {
+      "sample_id": "train/CR1_2136",
+      "image": "train/images/CR1_2136.JPG",
+      "label": "train/labels/CR1_2136.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 19, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 19,
+      "parser_issues": [
+        {
+          "line": 19,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 18,
+      "valid_annotation_union_pixels": 66005,
+      "zero_raster_instances": [
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            4284.999,
+            3.999,
+            4.000500000000102,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            4284.999,
+            3.999,
+            4.000500000000102,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 62,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.3705074500002254e-05,
+          "coco_raster_pixels": 323,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 44,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.5296926000010758e-05,
+          "coco_raster_pixels": 207,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 491,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00030048179700070676,
+          "coco_raster_pixels": 4056,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 40,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.11022199961775e-06,
+          "coco_raster_pixels": 96,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 58,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.1852426499814328e-05,
+          "coco_raster_pixels": 160,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 934,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003568119085031185,
+          "coco_raster_pixels": 4819,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0667055000190828e-05,
+          "coco_raster_pixels": 144,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 609,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00015499516801753543,
+          "coco_raster_pixels": 2093,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.585203749878474e-05,
+          "coco_raster_pixels": 484,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.0705406999231855e-05,
+          "coco_raster_pixels": 413,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 130,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7999111498644425e-05,
+          "coco_raster_pixels": 378,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.381474050063616e-05,
+          "coco_raster_pixels": 591,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 160,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7851926997234386e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 644,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004071847035191922,
+          "coco_raster_pixels": 5496,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 137,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.181618649847564e-05,
+          "coco_raster_pixels": 832,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 1386,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008052606285104957,
+          "coco_raster_pixels": 10861,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 3419,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0020896588345209466,
+          "coco_raster_pixels": 28213,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 704,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004687462589991753,
+          "coco_raster_pixels": 6328,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 18,
+      "positive_raster_annotation_count": 18
+    },
+    {
+      "sample_id": "train/CR1_2137",
+      "image": "train/images/CR1_2137.JPG",
+      "label": "train/labels/CR1_2137.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 17, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 17,
+      "parser_issues": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 16,
+      "valid_annotation_union_pixels": 37017,
+      "zero_raster_instances": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            3985.002,
+            3.999,
+            3.9960000000000946,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            3985.002,
+            3.999,
+            3.9960000000000946,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 40,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.111889499977764e-06,
+          "coco_raster_pixels": 96,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 58,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.1852925000610526e-05,
+          "coco_raster_pixels": 160,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 817,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003144812430040389,
+          "coco_raster_pixels": 4247,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0665388999520076e-05,
+          "coco_raster_pixels": 144,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 609,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00015499849999400794,
+          "coco_raster_pixels": 2093,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.5851201996450754e-05,
+          "coco_raster_pixels": 484,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.070274100025472e-05,
+          "coco_raster_pixels": 413,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 130,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.8000444501685706e-05,
+          "coco_raster_pixels": 378,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.381490700566815e-05,
+          "coco_raster_pixels": 591,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 57,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.36294259998715e-05,
+          "coco_raster_pixels": 318,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 160,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7852093004886456e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 296,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00013081479549725827,
+          "coco_raster_pixels": 1764,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 644,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000407183036500669,
+          "coco_raster_pixels": 5496,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 515,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00023196142845449685,
+          "coco_raster_pixels": 3133,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 1386,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008052629655992405,
+          "coco_raster_pixels": 10861,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 704,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004687367580054058,
+          "coco_raster_pixels": 6328,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 16,
+      "positive_raster_annotation_count": 16
+    },
+    {
+      "sample_id": "train/CR1_2138",
+      "image": "train/images/CR1_2138.JPG",
+      "label": "train/labels/CR1_2138.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 17, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 17,
+      "parser_issues": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 16,
+      "valid_annotation_union_pixels": 38969,
+      "zero_raster_instances": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            3685.0005,
+            3.999,
+            4.000500000000102,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            3685.0005,
+            3.999,
+            4.000500000000102,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 40,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.111388499958515e-06,
+          "coco_raster_pixels": 96,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 58,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.185242649992535e-05,
+          "coco_raster_pixels": 160,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 217,
+          "affine_rank": 2,
+          "signed_area_normalized": 8.347923949969527e-05,
+          "coco_raster_pixels": 1129,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0666390000024784e-05,
+          "coco_raster_pixels": 144,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 609,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00015500366549403566,
+          "coco_raster_pixels": 2093,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.5851037498702e-05,
+          "coco_raster_pixels": 484,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.0702407999072534e-05,
+          "coco_raster_pixels": 413,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 130,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.8000609999523363e-05,
+          "coco_raster_pixels": 378,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.381507449480182e-05,
+          "coco_raster_pixels": 591,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 878,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003991833694385605,
+          "coco_raster_pixels": 5388,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 160,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.785259050204104e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 296,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00013081363000111423,
+          "coco_raster_pixels": 1764,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 644,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004071833699867966,
+          "coco_raster_pixels": 5496,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 515,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0002319642564998503,
+          "coco_raster_pixels": 3133,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 1386,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008052616275051605,
+          "coco_raster_pixels": 10861,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 704,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004687304259949343,
+          "coco_raster_pixels": 6328,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 16,
+      "positive_raster_annotation_count": 16
+    },
+    {
+      "sample_id": "train/CR1_2139",
+      "image": "train/images/CR1_2139.JPG",
+      "label": "train/labels/CR1_2139.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 18, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 18,
+      "parser_issues": [
+        {
+          "line": 18,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 17,
+      "valid_annotation_union_pixels": 50537,
+      "zero_raster_instances": [
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            3384.999,
+            3.999,
+            4.000500000000102,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            3384.999,
+            3.999,
+            4.000500000000102,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 75,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.748207350147027e-05,
+          "coco_raster_pixels": 638,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 53,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.8481518999635682e-05,
+          "coco_raster_pixels": 248,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 107,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.07037965075574e-05,
+          "coco_raster_pixels": 552,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 89,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.492574050412145e-05,
+          "coco_raster_pixels": 472,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 75,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.729648100086024e-05,
+          "coco_raster_pixels": 369,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.585203749878474e-05,
+          "coco_raster_pixels": 484,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.0705406999231855e-05,
+          "coco_raster_pixels": 413,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 130,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7999111498644425e-05,
+          "coco_raster_pixels": 378,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.381474050063616e-05,
+          "coco_raster_pixels": 591,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 1452,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000657629588886266,
+          "coco_raster_pixels": 8877,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 160,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.78519270007871e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 296,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00013081463099950952,
+          "coco_raster_pixels": 1764,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 644,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004071847034907705,
+          "coco_raster_pixels": 5496,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 606,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0006980759809778192,
+          "coco_raster_pixels": 9422,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 515,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00023196376098155724,
+          "coco_raster_pixels": 3133,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 1386,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008052606286241826,
+          "coco_raster_pixels": 10861,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 704,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004687462590009517,
+          "coco_raster_pixels": 6328,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 17,
+      "positive_raster_annotation_count": 17
+    },
+    {
+      "sample_id": "train/CR1_2140",
+      "image": "train/images/CR1_2140.JPG",
+      "label": "train/labels/CR1_2140.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 20, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 20,
+      "parser_issues": [
+        {
+          "line": 20,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 19,
+      "valid_annotation_union_pixels": 77301,
+      "zero_raster_instances": [
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            3085.0020000000004,
+            3.999,
+            3.99599999999964,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            3085.0020000000004,
+            3.999,
+            3.99599999999964,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.292624149357607e-05,
+          "coco_raster_pixels": 984,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 187,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00012536996300127612,
+          "coco_raster_pixels": 1692,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 1093,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0007664003122158647,
+          "coco_raster_pixels": 10341,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 135,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.0406370505129416e-05,
+          "coco_raster_pixels": 681,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 107,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.070246399123789e-05,
+          "coco_raster_pixels": 552,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 89,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.4925406502850365e-05,
+          "coco_raster_pixels": 472,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 75,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.7296814501198696e-05,
+          "coco_raster_pixels": 369,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.585120199822711e-05,
+          "coco_raster_pixels": 484,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 131,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.0702740996702005e-05,
+          "coco_raster_pixels": 413,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 130,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.8000444501685706e-05,
+          "coco_raster_pixels": 378,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.381490700211543e-05,
+          "coco_raster_pixels": 591,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 1452,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0006576277605176983,
+          "coco_raster_pixels": 8877,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 160,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.785209300133374e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 296,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00013081479551146913,
+          "coco_raster_pixels": 1764,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 644,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004071830365219853,
+          "coco_raster_pixels": 5496,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 1451,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.001731892832367521,
+          "coco_raster_pixels": 23374,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 515,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0002319614284687077,
+          "coco_raster_pixels": 3133,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 1386,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008052629655708188,
+          "coco_raster_pixels": 10861,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 704,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004687367579947477,
+          "coco_raster_pixels": 6328,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 5,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 19,
+      "positive_raster_annotation_count": 19
+    },
+    {
+      "sample_id": "train/CR1_2777",
+      "image": "train/images/CR1_2777.JPG",
+      "label": "train/labels/CR1_2777.txt",
+      "decision": "invalid_mask:instance_rasterizes_to_zero_pixels",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 27,
+      "parser_issues": [],
+      "valid_annotation_count": 27,
+      "valid_annotation_union_pixels": 87694,
+      "zero_raster_instances": [
+        {
+          "line": 27,
+          "class_id": 0,
+          "vertices": 7,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7073999999853204e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false,
+          "polygon_area_pixels": 0.5004989999980183,
+          "pixel_bbox_xywh": [
+            531.0,
+            3.999,
+            4.999500000000012,
+            1.0020000000000002
+          ]
+        }
+      ],
+      "signed_area_flags": [],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 394,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00011459479750719481,
+          "coco_raster_pixels": 1548,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 331,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.862909350122351e-05,
+          "coco_raster_pixels": 1333,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 224,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.88909444996888e-05,
+          "coco_raster_pixels": 931,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 109,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.8037518499779424e-05,
+          "coco_raster_pixels": 380,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 498,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001478443144975472,
+          "coco_raster_pixels": 1999,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 215,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.13715744961496e-05,
+          "coco_raster_pixels": 831,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 176,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.533261100192476e-05,
+          "coco_raster_pixels": 611,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 3067,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0010431886543074143,
+          "coco_raster_pixels": 14088,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 553,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001687780549914919,
+          "coco_raster_pixels": 2280,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 120,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.1407370499669796e-05,
+          "coco_raster_pixels": 423,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 339,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.796003700013323e-05,
+          "coco_raster_pixels": 1323,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 278,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010400022249967833,
+          "coco_raster_pixels": 1403,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 257,
+          "affine_rank": 2,
+          "signed_area_normalized": 8.877811050211903e-05,
+          "coco_raster_pixels": 1199,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 172,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.377844500349283e-05,
+          "coco_raster_pixels": 861,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 325,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001257398134697496,
+          "coco_raster_pixels": 1697,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 281,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.914785349707245e-05,
+          "coco_raster_pixels": 1339,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 163,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.885170499553283e-05,
+          "coco_raster_pixels": 794,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 3956,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0012679186287414268,
+          "coco_raster_pixels": 17119,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 48,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0259963502790015e-05,
+          "coco_raster_pixels": 139,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 1291,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004133019265566418,
+          "coco_raster_pixels": 5578,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 5035,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.001651910334530271,
+          "coco_raster_pixels": 22312,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 486,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001494063715004046,
+          "coco_raster_pixels": 2016,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 605,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00018122861249936228,
+          "coco_raster_pixels": 2447,
+          "parser_rejected": false
+        },
+        {
+          "line": 24,
+          "class_id": 0,
+          "vertices": 664,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00019748790749984924,
+          "coco_raster_pixels": 2667,
+          "parser_rejected": false
+        },
+        {
+          "line": 25,
+          "class_id": 0,
+          "vertices": 521,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00017426407250009657,
+          "coco_raster_pixels": 2345,
+          "parser_rejected": false
+        },
+        {
+          "line": 26,
+          "class_id": 0,
+          "vertices": 19,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.4079260000000463e-06,
+          "coco_raster_pixels": 31,
+          "parser_rejected": false
+        },
+        {
+          "line": 27,
+          "class_id": 0,
+          "vertices": 7,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7073999999853204e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 27,
+      "positive_raster_annotation_count": 26
+    },
+    {
+      "sample_id": "train/CR1_2778",
+      "image": "train/images/CR1_2778.JPG",
+      "label": "train/labels/CR1_2778.txt",
+      "decision": "invalid_mask:instance_rasterizes_to_zero_pixels",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 23,
+      "parser_issues": [],
+      "valid_annotation_count": 23,
+      "valid_annotation_union_pixels": 82906,
+      "zero_raster_instances": [
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 7,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7241000000053266e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false,
+          "polygon_area_pixels": 0.5027535000007191,
+          "pixel_bbox_xywh": [
+            230.99849999999998,
+            3.999,
+            4.999500000000012,
+            1.0020000000000002
+          ]
+        }
+      ],
+      "signed_area_flags": [],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 338,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010026135149932003,
+          "coco_raster_pixels": 1355,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 109,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.803635250048231e-05,
+          "coco_raster_pixels": 380,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 498,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014784714900173412,
+          "coco_raster_pixels": 1999,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 215,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.137274050210806e-05,
+          "coco_raster_pixels": 831,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 176,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.533444499976724e-05,
+          "coco_raster_pixels": 611,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 3067,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0010431853125396628,
+          "coco_raster_pixels": 14088,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 396,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00011966522249906575,
+          "coco_raster_pixels": 1615,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 278,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00010399972250141332,
+          "coco_raster_pixels": 1403,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 257,
+          "affine_rank": 2,
+          "signed_area_normalized": 8.877827850639619e-05,
+          "coco_raster_pixels": 1199,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 172,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.377861099693405e-05,
+          "coco_raster_pixels": 861,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 325,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001257401470056152,
+          "coco_raster_pixels": 1697,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 281,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.914801850641197e-05,
+          "coco_raster_pixels": 1339,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 163,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.885187050225227e-05,
+          "coco_raster_pixels": 794,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 3956,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0012679187905177969,
+          "coco_raster_pixels": 17119,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 80,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.7925851498290513e-05,
+          "coco_raster_pixels": 241,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 1291,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0004133009218776351,
+          "coco_raster_pixels": 5578,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 5022,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0016503498380444626,
+          "coco_raster_pixels": 22290,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 486,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00014940820249886855,
+          "coco_raster_pixels": 2016,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 605,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001812281099997648,
+          "coco_raster_pixels": 2447,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 664,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001974859064998724,
+          "coco_raster_pixels": 2667,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 521,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001742659080000708,
+          "coco_raster_pixels": 2345,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 19,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.407759500000061e-06,
+          "coco_raster_pixels": 31,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 7,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.7241000000053266e-08,
+          "coco_raster_pixels": 0,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 23,
+      "positive_raster_annotation_count": 22
+    },
+    {
+      "sample_id": "train/CR1_2993",
+      "image": "train/images/CR1_2993.JPG",
+      "label": "train/labels/CR1_2993.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 1, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 24,
+      "parser_issues": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 23,
+      "valid_annotation_union_pixels": 123390,
+      "zero_raster_instances": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            4491.999,
+            2994.9990000000003,
+            3.0015000000003056,
+            1.001999999999498
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            4491.999,
+            2994.9990000000003,
+            3.0015000000003056,
+            1.001999999999498
+          ],
+          "proper_self_intersections_edges": [
+            [
+              2,
+              4
+            ]
+          ],
+          "vertices_pixels": [
+            [
+              4495.0005,
+              2994.9990000000003
+            ],
+            [
+              4494.0015,
+              2994.9990000000003
+            ],
+            [
+              4492.998,
+              2996.0009999999997
+            ],
+            [
+              4491.999,
+              2996.0009999999997
+            ]
+          ]
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 154,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.581718550156211e-05,
+          "coco_raster_pixels": 621,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 204,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.222211149051418e-05,
+          "coco_raster_pixels": 1245,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 94,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.4813629501352352e-05,
+          "coco_raster_pixels": 335,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 335,
+          "affine_rank": 2,
+          "signed_area_normalized": 8.662336999520903e-05,
+          "coco_raster_pixels": 1172,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 298,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.555261100833377e-05,
+          "coco_raster_pixels": 1020,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 109,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.837123999910318e-05,
+          "coco_raster_pixels": 383,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 209,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.9667500003968144e-05,
+          "coco_raster_pixels": 806,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 273,
+          "affine_rank": 2,
+          "signed_area_normalized": 7.093085095277729e-05,
+          "coco_raster_pixels": 957,
+          "parser_rejected": false
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 161,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.6553166496821063e-05,
+          "coco_raster_pixels": 628,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 289,
+          "affine_rank": 2,
+          "signed_area_normalized": 8.543772199942623e-05,
+          "coco_raster_pixels": 1153,
+          "parser_rejected": false
+        },
+        {
+          "line": 12,
+          "class_id": 0,
+          "vertices": 1011,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00026419931555210496,
+          "coco_raster_pixels": 3567,
+          "parser_rejected": false
+        },
+        {
+          "line": 13,
+          "class_id": 0,
+          "vertices": 211,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.284431499319453e-05,
+          "coco_raster_pixels": 714,
+          "parser_rejected": false
+        },
+        {
+          "line": 14,
+          "class_id": 0,
+          "vertices": 163,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.181851900142419e-05,
+          "coco_raster_pixels": 565,
+          "parser_rejected": false
+        },
+        {
+          "line": 15,
+          "class_id": 0,
+          "vertices": 214,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.436485199084018e-05,
+          "coco_raster_pixels": 735,
+          "parser_rejected": false
+        },
+        {
+          "line": 16,
+          "class_id": 0,
+          "vertices": 204,
+          "affine_rank": 2,
+          "signed_area_normalized": 5.2446333505429266e-05,
+          "coco_raster_pixels": 707,
+          "parser_rejected": false
+        },
+        {
+          "line": 17,
+          "class_id": 0,
+          "vertices": 1543,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0003704004250124626,
+          "coco_raster_pixels": 5001,
+          "parser_rejected": false
+        },
+        {
+          "line": 18,
+          "class_id": 0,
+          "vertices": 1145,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00030611383451173424,
+          "coco_raster_pixels": 4130,
+          "parser_rejected": false
+        },
+        {
+          "line": 19,
+          "class_id": 0,
+          "vertices": 55,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.1226222497384697e-05,
+          "coco_raster_pixels": 152,
+          "parser_rejected": false
+        },
+        {
+          "line": 20,
+          "class_id": 0,
+          "vertices": 55,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.2111111001189556e-05,
+          "coco_raster_pixels": 163,
+          "parser_rejected": false
+        },
+        {
+          "line": 21,
+          "class_id": 0,
+          "vertices": 380,
+          "affine_rank": 2,
+          "signed_area_normalized": 9.74800190078895e-05,
+          "coco_raster_pixels": 1316,
+          "parser_rejected": false
+        },
+        {
+          "line": 22,
+          "class_id": 0,
+          "vertices": 17316,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.006279944928792247,
+          "coco_raster_pixels": 84774,
+          "parser_rejected": false
+        },
+        {
+          "line": 23,
+          "class_id": 0,
+          "vertices": 2965,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0008561512409528405,
+          "coco_raster_pixels": 11557,
+          "parser_rejected": false
+        },
+        {
+          "line": 24,
+          "class_id": 0,
+          "vertices": 473,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00012537429650194554,
+          "coco_raster_pixels": 1689,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 23,
+      "positive_raster_annotation_count": 23
+    },
+    {
+      "sample_id": "train/SP0_1025",
+      "image": "train/images/SP0_1025.JPG",
+      "label": "train/labels/SP0_1025.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 4, 'class_id': 1, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4800,
+      "height": 3200,
+      "annotation_count": 6,
+      "parser_issues": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 5,
+      "valid_annotation_union_pixels": 1294647,
+      "zero_raster_instances": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -3.469446951953614e-18,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 5.3290705182007514e-11,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            22.0,
+            0.0,
+            5.001599999999996
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -3.469446951953614e-18,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            22.0,
+            0.0,
+            5.001599999999996
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 1,
+          "vertices": 7752,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.07183341046106761,
+          "coco_raster_pixels": 1103287,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 1,
+          "vertices": 1928,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.011973706878002588,
+          "coco_raster_pixels": 183956,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 1,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.9193281000000453e-05,
+          "coco_raster_pixels": 446,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -3.469446951953614e-18,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 5,
+          "class_id": 1,
+          "vertices": 164,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0002154926044999339,
+          "coco_raster_pixels": 3277,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 1,
+          "vertices": 189,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00023879989650005262,
+          "coco_raster_pixels": 3681,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 5,
+      "positive_raster_annotation_count": 5
+    },
+    {
+      "sample_id": "validation/SP0_1018",
+      "image": "val/images/SP0_1018.JPG",
+      "label": "val/labels/SP0_1018.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 4, 'class_id': 1, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4800,
+      "height": 3200,
+      "annotation_count": 8,
+      "parser_issues": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 7,
+      "valid_annotation_union_pixels": 1340331,
+      "zero_raster_instances": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            222.00000000000003,
+            0.0,
+            5.001599999999968
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            222.00000000000003,
+            0.0,
+            5.001599999999968
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 1,
+          "vertices": 7752,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.07183340869414678,
+          "coco_raster_pixels": 1103287,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 1,
+          "vertices": 1928,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.011973713336509206,
+          "coco_raster_pixels": 183956,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 1,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.9194219500001256e-05,
+          "coco_raster_pixels": 446,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 5,
+          "class_id": 1,
+          "vertices": 438,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0009220701565020306,
+          "coco_raster_pixels": 14165,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 1,
+          "vertices": 941,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0010898691654990245,
+          "coco_raster_pixels": 16783,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 1,
+          "vertices": 529,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0006195609875003782,
+          "coco_raster_pixels": 9499,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 1,
+          "vertices": 630,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.000791535888003736,
+          "coco_raster_pixels": 12195,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 7,
+      "positive_raster_annotation_count": 7
+    },
+    {
+      "sample_id": "test/CR1_2033",
+      "image": "test/images/CR1_2033.JPG",
+      "label": "test/labels/CR1_2033.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 9, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 11,
+      "parser_issues": [
+        {
+          "line": 9,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 10,
+      "valid_annotation_union_pixels": 63981,
+      "zero_raster_instances": [
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            1017.999,
+            3.999,
+            3.0014999999999645,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            1017.999,
+            3.999,
+            3.0014999999999645,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 3241,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0013855971888006025,
+          "coco_raster_pixels": 18712,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 466,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00015792751798926474,
+          "coco_raster_pixels": 2131,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 3610,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0016843765720295778,
+          "coco_raster_pixels": 22738,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 167,
+          "affine_rank": 2,
+          "signed_area_normalized": 3.781524299997785e-05,
+          "coco_raster_pixels": 511,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 469,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001932976480000237,
+          "coco_raster_pixels": 2608,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 216,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.9255685499738355e-05,
+          "coco_raster_pixels": 665,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 529,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001404840765004689,
+          "coco_raster_pixels": 1896,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 1894,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0010200751485109905,
+          "coco_raster_pixels": 13764,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 10,
+          "class_id": 0,
+          "vertices": 202,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.048140749997932e-05,
+          "coco_raster_pixels": 815,
+          "parser_rejected": false
+        },
+        {
+          "line": 11,
+          "class_id": 0,
+          "vertices": 45,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0593074500001368e-05,
+          "coco_raster_pixels": 141,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 10,
+      "positive_raster_annotation_count": 10
+    },
+    {
+      "sample_id": "test/CR1_2034",
+      "image": "test/images/CR1_2034.JPG",
+      "label": "test/labels/CR1_2034.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 7, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 9,
+      "parser_issues": [
+        {
+          "line": 7,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 8,
+      "valid_annotation_union_pixels": 59830,
+      "zero_raster_instances": [
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            718.0020000000001,
+            3.999,
+            2.9969999999999573,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            718.0020000000001,
+            3.999,
+            2.9969999999999573,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 3241,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.001385594688827041,
+          "coco_raster_pixels": 18712,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 466,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001579206844297687,
+          "coco_raster_pixels": 2131,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 3610,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0016843682419676043,
+          "coco_raster_pixels": 22738,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 216,
+          "affine_rank": 2,
+          "signed_area_normalized": 4.9265851999935606e-05,
+          "coco_raster_pixels": 665,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 482,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00012874220500005973,
+          "coco_raster_pixels": 1737,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 0,
+          "vertices": 1724,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0009553701884978949,
+          "coco_raster_pixels": 12891,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 8,
+          "class_id": 0,
+          "vertices": 202,
+          "affine_rank": 2,
+          "signed_area_normalized": 6.0484905999996785e-05,
+          "coco_raster_pixels": 815,
+          "parser_rejected": false
+        },
+        {
+          "line": 9,
+          "class_id": 0,
+          "vertices": 45,
+          "affine_rank": 2,
+          "signed_area_normalized": 1.0592407500000997e-05,
+          "coco_raster_pixels": 141,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 8,
+      "positive_raster_annotation_count": 8
+    },
+    {
+      "sample_id": "test/CR1_2036",
+      "image": "test/images/CR1_2036.JPG",
+      "label": "test/labels/CR1_2036.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 5, 'class_id': 0, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4500,
+      "height": 3000,
+      "annotation_count": 5,
+      "parser_issues": [
+        {
+          "line": 5,
+          "class_id": 0,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 4,
+      "valid_annotation_union_pixels": 47253,
+      "zero_raster_instances": [
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 0.0,
+          "pixel_bbox_xywh": [
+            117.999,
+            3.999,
+            3.001500000000007,
+            0.0
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            117.999,
+            3.999,
+            3.001500000000007,
+            0.0
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 0,
+          "vertices": 3241,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0013855971882321683,
+          "coco_raster_pixels": 18712,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 0,
+          "vertices": 466,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0001579275180034756,
+          "coco_raster_pixels": 2131,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 0,
+          "vertices": 3610,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0016843765699832147,
+          "coco_raster_pixels": 22738,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 0,
+          "vertices": 522,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.00027263248249995153,
+          "coco_raster_pixels": 3672,
+          "parser_rejected": false
+        },
+        {
+          "line": 5,
+          "class_id": 0,
+          "vertices": 4,
+          "affine_rank": 1,
+          "signed_area_normalized": 0.0,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        }
+      ],
+      "parser_accepted_annotation_count": 4,
+      "positive_raster_annotation_count": 4
+    },
+    {
+      "sample_id": "test/SP0_1011",
+      "image": "test/images/SP0_1011.JPG",
+      "label": "test/labels/SP0_1011.txt",
+      "decision": "invalid_source:invalid_yolo_annotation:[{'line': 4, 'class_id': 1, 'reason': 'zero_signed_shoelace_area'}]",
+      "width": 4800,
+      "height": 3200,
+      "annotation_count": 8,
+      "parser_issues": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "reason": "zero_signed_shoelace_area"
+        }
+      ],
+      "valid_annotation_count": 7,
+      "valid_annotation_union_pixels": 1340331,
+      "zero_raster_instances": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -5.551115123125783e-17,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "polygon_area_pixels": 8.526512829121202e-10,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            422.0,
+            0.0,
+            4.998400000000004
+          ]
+        }
+      ],
+      "signed_area_flags": [
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -5.551115123125783e-17,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true,
+          "pixel_bbox_xywh": [
+            4794.9984,
+            422.0,
+            0.0,
+            4.998400000000004
+          ],
+          "proper_self_intersections_edges": []
+        }
+      ],
+      "polygons": [
+        {
+          "line": 1,
+          "class_id": 1,
+          "vertices": 7752,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.07183342379585156,
+          "coco_raster_pixels": 1103287,
+          "parser_rejected": false
+        },
+        {
+          "line": 2,
+          "class_id": 1,
+          "vertices": 1928,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.011973707397007871,
+          "coco_raster_pixels": 183956,
+          "parser_rejected": false
+        },
+        {
+          "line": 3,
+          "class_id": 1,
+          "vertices": 56,
+          "affine_rank": 2,
+          "signed_area_normalized": 2.9194219500001256e-05,
+          "coco_raster_pixels": 446,
+          "parser_rejected": false
+        },
+        {
+          "line": 4,
+          "class_id": 1,
+          "vertices": 6,
+          "affine_rank": 1,
+          "signed_area_normalized": -5.551115123125783e-17,
+          "coco_raster_pixels": 0,
+          "parser_rejected": true
+        },
+        {
+          "line": 5,
+          "class_id": 1,
+          "vertices": 438,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0009220717209998952,
+          "coco_raster_pixels": 14165,
+          "parser_rejected": false
+        },
+        {
+          "line": 6,
+          "class_id": 1,
+          "vertices": 941,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0010898725030052958,
+          "coco_raster_pixels": 16783,
+          "parser_rejected": false
+        },
+        {
+          "line": 7,
+          "class_id": 1,
+          "vertices": 529,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0006195698435043084,
+          "coco_raster_pixels": 9499,
+          "parser_rejected": false
+        },
+        {
+          "line": 8,
+          "class_id": 1,
+          "vertices": 630,
+          "affine_rank": 2,
+          "signed_area_normalized": 0.0007915365110022776,
+          "coco_raster_pixels": 12195,
+          "parser_rejected": false
+        }
+      ],
+      "parser_accepted_annotation_count": 7,
+      "positive_raster_annotation_count": 7
+    }
+  ],
+  "affected_crack_samples": 15,
+  "affected_spalling_samples": 3,
+  "valid_annotation_union_pixels_in_excluded_crack_samples": 951363,
+  "valid_annotations_in_excluded_crack_samples": 280,
+  "method": {
+    "parser": "scripts/eda_cubit_inseg.py:parse_annotations",
+    "rasterizer": "pycocotools 2.0.11, COCO polygon frPyObjects at original dimensions",
+    "scope": "Only18 current samples excluded for invalid_source/invalid_mask; full-corpus scan belongs to root raw_eda audit",
+    "read_only_inputs": true,
+    "geometry_self_check": "Proper-crossing implementation distinguishes synthetic bow-tie from rectangle; confirms one proper crossing in actual CR1_2993 line1."
+  },
+  "parser_accepted_annotations_in_excluded_crack_samples": 285,
+  "valid_annotation_count_definition": "Per-record valid_annotation_count is parser-accepted; positive_raster_annotation_count excludes additional parser-valid instances with zero COCO support. Aggregate valid_annotations_in_excluded_crack_samples counts positive-raster instances only."
+}

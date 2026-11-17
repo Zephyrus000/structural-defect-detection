@@ -34,7 +34,14 @@ class Profiler:
             ("pipeline", lambda: predictor.predict(image)),
         ):
             samples = []
-            with torch.inference_mode():
+            with (
+                torch.inference_mode(),
+                torch.autocast(
+                    device_type=self.device.type,
+                    enabled=self.config.runtime.amp,
+                    dtype=getattr(torch, self.config.runtime.amp_dtype),
+                ),
+            ):
                 for i in range(iterations + warmup):
                     self._sync()
                     started = time.perf_counter()
@@ -54,7 +61,9 @@ class Profiler:
             "environment": runtime_metadata(self.device),
             "size": [h, w],
             "batch": 1,
-            "inference_precision": "fp32",
+            "inference_precision": f"amp_{self.config.runtime.amp_dtype}"
+            if self.config.runtime.amp
+            else "fp32",
             "training_amp": self.config.runtime.amp,
             "training_amp_dtype": self.config.runtime.amp_dtype,
             "iterations": iterations,

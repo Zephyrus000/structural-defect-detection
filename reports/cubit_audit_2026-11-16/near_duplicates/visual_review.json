@@ -1,0 +1,30 @@
+{
+  "reviewed_candidates": 20,
+  "review_scale": "Seven contact sheets with thumbnail-sized original RGB images; all20 candidate pairs inspected.",
+  "independently_verified_physical_group_ids": false,
+  "dataset_or_split_changed": false,
+  "strong_visual_overlap_examples": [
+    {
+      "image_a": "train/images/CR1_1426.JPG",
+      "image_b": "test/images/CR1_1427.JPG",
+      "observation": "Matching irregular branching crack geometry and window corner; shifted framing."
+    },
+    {
+      "image_a": "train/images/CR1_1438.JPG",
+      "image_b": "val/images/CR1_1439.JPG",
+      "observation": "Matching crack junctions and horizontal fracture above the same window area."
+    },
+    {
+      "image_a": "train/images/CR1_1440.JPG",
+      "image_b": "val/images/CR1_1441.JPG",
+      "observation": "Matching crack junctions and fracture above window; small viewpoint shift."
+    },
+    {
+      "image_a": "train/images/CR1_2196.JPG",
+      "image_b": "test/images/CR1_2197.JPG",
+      "observation": "Matching irregular cornice crack and weathering marks; shifted view."
+    }
+  ],
+  "interpretation": "Observed overlapping visual content contradicts independent-scene interpretation for these holdouts; no measured model-score inflation is claimed.",
+  "remaining_pairs": "Heuristic candidates require native-resolution/physical-group review before reassignment; none were automatically declared byte duplicates."
+}

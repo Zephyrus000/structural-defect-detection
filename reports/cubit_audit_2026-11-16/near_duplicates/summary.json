@@ -1,0 +1,27 @@
+{
+  "images": 6996,
+  "all_pair_comparisons": 24468510,
+  "method": "Pillow JPEG draft256; grayscale LANCZOS; pHash32x32 DCT-II ortho top8x8 excluding DC, median63, plus horizontal dHash9x8; candidate if Hamming(pHash)<=8 AND Hamming(dHash)<=10.",
+  "candidate_pairs": 2238,
+  "exact_file_pairs_recovered": 589,
+  "nonexact_candidates": 1649,
+  "prepared_cross_split_nonexact_candidates": 20,
+  "prepared_cross_split_patterns": {
+    "test-train": 12,
+    "train-val": 8
+  },
+  "review_pages": 7,
+  "limitations": [
+    "Heuristic candidates, not automatically confirmed duplicate labels or physical identities.",
+    "Repeated facade textures can be false positives; visual review is required.",
+    "No exhaustive rotation, crop, perspective or capture-session independence guarantee.",
+    "Low-resolution thumbnail decoding does not replace full-resolution integrity checks."
+  ],
+  "visually_inspected_pairs": 20,
+  "candidate_distinct_images": 37,
+  "candidate_distinct_images_by_raw_split": {
+    "test": 9,
+    "train": 20,
+    "val": 8
+  }
+}

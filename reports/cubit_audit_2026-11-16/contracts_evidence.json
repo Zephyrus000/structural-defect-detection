@@ -1,0 +1,41 @@
+{
+  "checked_at_utc": "2026-11-16T16:00:50.014292+00:00",
+  "scope": "Local contracts and lineage; no fresh full image decode or raw hash scan in this lane",
+  "integrity_checks": {
+    "root_manifest_sha_matches_provenance": true,
+    "prepared_manifest_sha_matches_provenance": true,
+    "validation_report_sha_matches_provenance": true,
+    "data_yaml_sha_matches_provenance": true,
+    "mapping_config_sha_matches_provenance": true
+  },
+  "raw_inventory_rows": 6996,
+  "manifest_rows": 3139,
+  "retained_splits": {
+    "train": 2523,
+    "validation": 299,
+    "test": 317
+  },
+  "unique_sample_ids": 3139,
+  "real_structure_ids_present": 0,
+  "real_capture_session_ids_present": 0,
+  "source_image_ids_equal_decoded_hash": 3139,
+  "validator_samples_without_group_metadata": 0,
+  "retained_images_with_zero_crack_pixels": 0,
+  "minimum_retained_crack_pixels": 8858,
+  "retained_ignored_pixels": 0,
+  "excluded_decisions": {
+    "invalid_mask": 5,
+    "invalid_source": 13,
+    "cubit_no_confirmed_crack_coverage": 3839
+  },
+  "raw_exact_duplicate_groups": 589,
+  "raw_cross_split_duplicate_groups": 222,
+  "raw_cross_split_duplicate_members": 444,
+  "raw_cross_split_duplicate_members_in_prepared_manifest": 0,
+  "notes": [
+    "source_image_id is a content digest, not a verified parent capture or physical structure identifier.",
+    "All retained whole images are crack-positive; pixel-level background remains present.",
+    "Invalid-source rows have blank class/pixel counts; blank counts must not be interpreted as a true negative.",
+    "Current raw source is only verified against prior local inventory; this lane does not attest upstream archive authenticity."
+  ]
+}

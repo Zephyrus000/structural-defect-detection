@@ -1,0 +1,14 @@
+image,label,line,class_id,reason
+train/images/CR1_2035.JPG,train/labels/CR1_2035.txt,6,0,zero_signed_shoelace_area
+train/images/CR1_2136.JPG,train/labels/CR1_2136.txt,19,0,zero_signed_shoelace_area
+train/images/CR1_2137.JPG,train/labels/CR1_2137.txt,17,0,zero_signed_shoelace_area
+train/images/CR1_2138.JPG,train/labels/CR1_2138.txt,17,0,zero_signed_shoelace_area
+train/images/CR1_2139.JPG,train/labels/CR1_2139.txt,18,0,zero_signed_shoelace_area
+train/images/CR1_2140.JPG,train/labels/CR1_2140.txt,20,0,zero_signed_shoelace_area
+train/images/CR1_2993.JPG,train/labels/CR1_2993.txt,1,0,zero_signed_shoelace_area
+train/images/SP0_1025.JPG,train/labels/SP0_1025.txt,4,1,zero_signed_shoelace_area
+val/images/SP0_1018.JPG,val/labels/SP0_1018.txt,4,1,zero_signed_shoelace_area
+test/images/CR1_2033.JPG,test/labels/CR1_2033.txt,9,0,zero_signed_shoelace_area
+test/images/CR1_2034.JPG,test/labels/CR1_2034.txt,7,0,zero_signed_shoelace_area
+test/images/CR1_2036.JPG,test/labels/CR1_2036.txt,5,0,zero_signed_shoelace_area
+test/images/SP0_1011.JPG,test/labels/SP0_1011.txt,4,1,zero_signed_shoelace_area

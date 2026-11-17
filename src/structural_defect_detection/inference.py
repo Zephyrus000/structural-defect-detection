@@ -35,7 +35,13 @@ class Predictor:
             tensor = F.interpolate(value[None], (h, w), mode="bilinear", align_corners=False).to(
                 self.device
             )
-            result = self.model(tensor).sigmoid().float().cpu()
+            with torch.autocast(
+                device_type=self.device.type,
+                enabled=self.config.runtime.amp,
+                dtype=getattr(torch, self.config.runtime.amp_dtype),
+            ):
+                logits = self.model(tensor)
+            result = logits.float().sigmoid().cpu()
             return F.interpolate(result, (height, width), mode="bilinear", align_corners=False)[
                 0, 0
             ].numpy()
@@ -62,7 +68,13 @@ class Predictor:
                 inputs = (inputs.float().div_(255) - mean) / std
             if (th, tw) != (h, w):
                 inputs = F.pad(inputs, (0, w - tw, 0, h - th))
-            probabilities = self.model(inputs.to(self.device)).sigmoid().float().to(total.device)[:, 0]
+            with torch.autocast(
+                device_type=self.device.type,
+                enabled=self.config.runtime.amp,
+                dtype=getattr(torch, self.config.runtime.amp_dtype),
+            ):
+                logits = self.model(inputs.to(self.device))
+            probabilities = logits.float().sigmoid().to(total.device)[:, 0]
             for (top, left), probability in zip(batch, probabilities, strict=True):
                 th, tw = min(h, height - top), min(w, width - left)
                 total[top : top + th, left : left + tw] += probability[:th, :tw]

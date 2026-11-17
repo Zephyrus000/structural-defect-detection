@@ -52,11 +52,11 @@ Tên `data/CUBIT-InSeg/data.yaml` là metadata của dataset, **không phải ex
 | Cấu hình | Device / micro-batch | Thư mục chứa các run |
 |---|---|---|
 | Không truyền `--machine`, dùng base hiện tại | CPU / 2 | `.cache/runs/` |
-| `configs/machines/rtx3070ti_8gb.yaml` | CUDA / 1 | `.cache/runs_3070ti/` |
+| `configs/machines/rtx3070ti_8gb.yaml` | CUDA / 16 | `.cache/runs_3070ti/` |
 | `configs/machines/rtx3060_12gb.yaml` | CUDA / 8 | `.cache/runs_3060/` |
 | `configs/machines/rtx4090_24gb.yaml` | CUDA / 4 | `.cache/runs_4090/` |
 
-Machine YAML chỉ thay runtime, output root và dataset roots. Effective batch mặc định là 8; gradient accumulation tương ứng là 8/1/2 với ba GPU profiles. Profile RTX 3060 dùng 4 workers và cắt/ghép tile trên GPU theo batch 8. Dùng đường dẫn có dấu `/` trong YAML để tránh escape của chuỗi Windows.
+Machine YAML chỉ thay runtime, output root và dataset roots. Effective batch mặc định là 64; gradient accumulation tương ứng là 4/8/16 với ba GPU profiles. `micro_batch` là số crop đưa lên GPU cùng lúc; `effective_batch` là tổng số crop góp gradient cho một optimizer update. Profile RTX 3070 Ti dùng 8 workers, GPU tiling theo batch 16 và BF16 AMP cho model forward trong training/inference; chuẩn hóa ảnh, normalization layers, loss và phép ghép tile giữ FP32. Profile RTX 3060 dùng 4 workers và cắt/ghép tile trên GPU theo batch 8. Các profile vẫn cần đo throughput/VRAM thực tế. Dùng đường dẫn có dấu `/` trong YAML để tránh escape của chuỗi Windows.
 
 ## 3. Chạy thử bằng dữ liệu thật với `--dry-run`
 
@@ -198,7 +198,7 @@ Chỉ chạy sau khi prepare/validate thành công và kiểm overlay annotation
 & $sdd train --config configs/experiments/hybrid_ph.yaml --machine configs/machines/rtx3070ti_8gb.yaml --dry-run --max-samples 2 --run-id cubit-ph-check --set output.root=.cache/cubit-checks
 ```
 
-Lệnh này đọc tối đa 2 mẫu train từ manifest, không cập nhật trọng số; output là `.cache/cubit-checks/dry-runs/cubit-ph-check/`. Full training hiện mặc định 20 epochs; hyperparameters vẫn là candidate chưa được xác minh bằng experiment dài trên CUBIT.
+Lệnh này đọc tối đa 2 mẫu train từ manifest, không cập nhật trọng số; output là `.cache/cubit-checks/dry-runs/cubit-ph-check/`. Full training hiện mặc định tối đa 100 epochs, với `training.early_stop_patience: 25`: dừng sau 25 lần validation liên tiếp không cải thiện Dice. Hyperparameters vẫn là candidate chưa được xác minh bằng experiment dài trên CUBIT; thay đổi lịch train/batch cần run mới, không dùng để kéo dài checkpoint cũ.
 
 Terminal in `epoch=... loss=... val_dice=... ph=...`, rồi JSON với `run_id`, `status`, `best_validation_dice`. Có thể chưa có dòng epoch trong khi kiểm toàn bộ dữ liệu hoặc chạy epoch đầu. Đây không phải stdout chỉ chứa JSON.
 
@@ -355,7 +355,7 @@ Collect dùng **best validation metrics**, không gom kết quả test/evaluate 
 & $sddPython -m ruff check src tests
 ```
 
-`profile` in và lưu cùng report JSON tại đường dẫn `--output`: parameters, model/pipeline mean/p95 latency và FPS, PH statistics, training forward/backward probe, peak GPU memory (bytes), môi trường và cấu hình đo. Input là một **training crop thật** (lấy mẫu đầu tiên theo cùng quy tắc dry-run), batch 1; inference FP32, training probe theo AMP config. Report lưu source hashes và transform. Dùng `--layout` khi đọc raw YOLO; bỏ cờ này nếu đã có manifest. Pipeline không gồm đọc ảnh/rasterize/ghi overlay; probe không cập nhật trọng số, không có optimizer state. Không dùng kết quả trên crop này làm throughput ảnh UAV 4K, full training hoặc hiệu năng drone.
+`profile` in và lưu cùng report JSON tại đường dẫn `--output`: parameters, model/pipeline mean/p95 latency và FPS, PH statistics, training forward/backward probe, peak GPU memory (bytes), môi trường và cấu hình đo. Input là một **training crop thật** (lấy mẫu đầu tiên theo cùng quy tắc dry-run), batch 1; model và pipeline inference cùng dùng AMP theo runtime config, training probe cũng theo AMP config. `inference_precision` là `amp_bfloat16` khi bật BF16 AMP, hoặc `fp32` khi tắt AMP. Chuẩn hóa ảnh, normalization layers, loss và phép ghép tile giữ FP32. Report lưu source hashes và transform. Dùng `--layout` khi đọc raw YOLO; bỏ cờ này nếu đã có manifest. Pipeline không gồm đọc ảnh/rasterize/ghi overlay; probe không cập nhật trọng số, không có optimizer state. Không dùng kết quả trên crop này làm throughput ảnh UAV 4K, full training hoặc hiệu năng drone.
 
 `pytest`/`ruff` trả kết quả trên terminal. Bộ test dùng crop từ ảnh và polygon **official train split** của CUBIT, với provenance/hashes trong thư mục tạm pytest. Các partition train/validation/test nhỏ của fixture chỉ để kiểm phần mềm (resume, sweep, evaluation), không sửa split gốc hay dùng official test để chọn model. Thiếu dataset sẽ báo lỗi, không fallback sang dữ liệu giả. Negative tests chỉ gây lỗi trên bản sao annotation. File demo generator và script overfit cũ đã được loại bỏ; chạy thử model dùng `train --dry-run`.
 

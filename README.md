@@ -102,7 +102,9 @@ Checkpoint selection dùng macro dataset mean của per-image validation Dice. T
 
 Override tường minh: `--set training.seed=17`, `--set training.epochs=30`. Cấu hình mới tạo run mới. Resume yêu cầu experiment/data/AMP tương thích và thực hiện ở ranh giới epoch; CLI không kéo dài run cũ bằng cách đổi epochs.
 
-Machine YAML chỉ đổi `runtime`, `output.root` và dataset `roots`. Effective batch phải chia hết cho micro-batch; accumulation được suy ra. Các profile 8/12/24 GB có micro-batch 1/8/4 và effective batch mặc định là 8. CNN dùng GroupNorm để giảm phụ thuộc micro-batch. AMP mặc định `bfloat16`; `runtime.amp_dtype: float16` là lựa chọn tường minh có GradScaler. Dtype được lưu và kiểm khi resume.
+Machine YAML chỉ đổi `runtime`, `output.root` và dataset `roots`. Effective batch phải chia hết cho micro-batch; accumulation được suy ra. Các profile 8/12/24 GB có micro-batch 16/8/4 và effective batch mặc định là 64, tương ứng accumulation 4/8/16. Profile RTX 3070 Ti dùng 8 workers và GPU tiling. CNN dùng GroupNorm để giảm phụ thuộc micro-batch. AMP mặc định `bfloat16` cho model forward trong training và inference; chuẩn hóa ảnh, normalization layers, loss và phép ghép tile giữ FP32. `runtime.amp_dtype: float16` là lựa chọn tường minh có GradScaler khi training. Dtype được lưu và kiểm khi resume.
+
+Các experiment kế thừa base hiện chạy tối đa 100 epochs, dừng sớm sau 25 lần validation liên tiếp không cải thiện Dice (`training.early_stop_patience: 25`). Các giá trị này là cấu hình khởi đầu, chưa phải kết quả tối ưu throughput hoặc accuracy; experiment có override riêng vẫn giữ override đó.
 
 OOM/non-finite làm run failed, không tự giảm resolution/bỏ PH. `--retry` dành cho run failed; có checkpoint cuối epoch thì resume từ đó. Run lock chống trùng output; các run CUDA từ cùng checkout dùng device lock. Không quản lý các chương trình GPU ngoài framework hoặc distributed lock giữa máy khác nhau. Khi process bị kill cứng, kiểm process đã dừng trước khi dọn `.lock`/đánh dấu run failed; framework không tự cướp lock.
 

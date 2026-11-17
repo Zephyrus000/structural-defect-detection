@@ -3,8 +3,9 @@ roots:
   cubit-inseg: data/CUBIT-InSeg
 runtime:
   device: cuda:0
-  workers: 4
-  micro_batch: 1
+  workers: 8
+  micro_batch: 16
+  gpu_tiles: true
   amp: true
   amp_dtype: bfloat16
   threads: 4
