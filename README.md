@@ -83,14 +83,15 @@ Baseline hiện tại dùng CUBIT-InSeg prepared `crack_v1`, CNN-only và Dice +
 
 Profile RTX 3060 bật sẵn BF16 trong training, 4 worker đọc dữ liệu và tiling batch 8. Validation nạp trước ảnh và mask bằng tối đa 4 luồng CPU, cắt và ghép tile trên GPU, rồi tính metric ở kích thước ảnh gốc.
 
-Hai cấu hình thử nghiệm tách riêng tác động của topology trên cùng baseline CUBIT:
+Các cấu hình trên cùng dữ liệu CUBIT cho phép so loss và kiến trúc:
 
 | Config | Loss |
 |---|---|
 | [cubit_cnn_cldice.yaml](configs/experiments/cubit_cnn_cldice.yaml) | Dice + Focal + 0.1 × soft-clDice |
 | [cubit_cnn_ecc.yaml](configs/experiments/cubit_cnn_ecc.yaml) | Dice + Focal + 0.01 × Euler Characteristic Curve loss |
+| [hybrid_cldice_no_ph.yaml](configs/experiments/hybrid_cldice_no_ph.yaml) | CNN–Swin với Dice + Focal + 0.1 × soft-clDice |
 
-Để chạy đối chứng, thay `--config` và dùng `--run-id` riêng trong lệnh baseline. Cả hai giữ PH bằng 0. Soft-clDice dùng skeleton mềm và bỏ phần loss topology trên crop không có skeleton đích. Vùng ignore bị mask trước phép morphology, nên biên ignore có thể cắt skeleton. ECC so đường cong superlevel tại năm ngưỡng từ 0.2 tới 0.8, trên cửa sổ tối đa 32×32 không chồng lấn có toàn bộ pixel hợp lệ. ECC dùng quy ước ô vuông đóng nên hai pixel chạm góc được tính là nối nhau. Sai số ECC có thể triệt tiêu giữa thành phần liên thông và lỗ, kể cả khi vị trí crack sai. Hai trọng số trên là điểm bắt đầu cho ablation. [Soft-clDice](https://arxiv.org/abs/2003.07311) · [Differentiable ECC](https://arxiv.org/abs/2510.20271)
+Để chạy đối chứng, thay `--config` và dùng `--run-id` riêng trong lệnh baseline. Cả ba config giữ PH bằng 0. So hai config soft-clDice để đo tác động của Swin. Soft-clDice dùng skeleton mềm và bỏ phần loss topology trên crop không có skeleton đích. Vùng ignore bị mask trước phép morphology, nên biên ignore có thể cắt skeleton. ECC so đường cong superlevel tại năm ngưỡng từ 0.2 tới 0.8, trên cửa sổ tối đa 32×32 không chồng lấn có toàn bộ pixel hợp lệ. ECC dùng quy ước ô vuông đóng nên hai pixel chạm góc được tính là nối nhau. Sai số ECC có thể triệt tiêu giữa thành phần liên thông và lỗ, kể cả khi vị trí crack sai. Hai trọng số trên là điểm bắt đầu cho ablation. [Soft-clDice](https://arxiv.org/abs/2003.07311) · [Differentiable ECC](https://arxiv.org/abs/2510.20271)
 
 Các config dưới đây dùng cho đối chứng và resume:
 

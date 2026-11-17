@@ -52,8 +52,22 @@ class SegmentationDataset(Dataset):
             # Crop uint8 arrays before normalization: a 4K source should not create
             # multiple full-size float32 copies for a small training patch.
             pad = (0, max(0, w - original[1]), 0, max(0, h - original[0]))
-            top = int(rng.integers(0, max(original[0], h) - h + 1))
-            left = int(rng.integers(0, max(original[1], w) - w + 1))
+            max_top, max_left = max(0, original[0] - h), max(0, original[1] - w)
+            top = int(rng.integers(0, max_top + 1))
+            left = int(rng.integers(0, max_left + 1))
+            if cfg.foreground_crop_probability and row["split"] == "train":
+                # Keep the original random draws for the crop and flips comparable across runs.
+                foreground_rng = np.random.default_rng([seed, 1])
+                region = np.s_[top : top + h, left : left + w]
+                if (
+                    foreground_rng.random() < cfg.foreground_crop_probability
+                    and not (target[region] & valid[region]).any()
+                ):
+                    foreground = np.flatnonzero(target & valid)
+                    if foreground.size:
+                        y, x = divmod(int(foreground_rng.choice(foreground)), original[1])
+                        top = int(foreground_rng.integers(max(0, y - h + 1), min(y, max_top) + 1))
+                        left = int(foreground_rng.integers(max(0, x - w + 1), min(x, max_left) + 1))
             image = image_tensor(image[top : top + h, left : left + w], cfg.mean, cfg.std)
             target = torch.from_numpy(target[top : top + h, left : left + w].copy()).float()[None]
             valid = torch.from_numpy(valid[top : top + h, left : left + w].copy())[None]

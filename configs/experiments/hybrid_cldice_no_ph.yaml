@@ -1,0 +1,3 @@
+base: cubit_cnn_cldice.yaml
+model:
+  name: hybrid

@@ -15,7 +15,7 @@ from structural_defect_detection.cli import main
 from structural_defect_detection.data import DataModule, ManifestBuilder
 from structural_defect_detection.data.cubit import decode_segmentation
 from structural_defect_detection.data.cubit_yolo import CubitYoloAdapter
-from structural_defect_detection.data.dataset import collate
+from structural_defect_detection.data.dataset import SegmentationDataset, collate
 from structural_defect_detection.data.manifest import FIELDS, read_manifest
 from structural_defect_detection.data.probe import RealDataSampler
 from structural_defect_detection.evaluation import SegmentationMetrics
@@ -106,6 +106,39 @@ def test_real_crop_alignment_padding_and_leakage(real_config):
         writer.writerows(rows)
     with pytest.raises(ValueError, match="content leakage"):
         ManifestBuilder(cfg.data).validate()
+
+
+def test_foreground_crop_resamples_using_only_valid_train_labels(real_config):
+    data = replace(real_config.data, size=(8, 8), foreground_crop_probability=1.0)
+    cfg = replace(real_config, data=data)
+    dataset = SegmentationDataset([], cfg)
+    uniform = SegmentationDataset(
+        [], replace(cfg, data=replace(data, foreground_crop_probability=0))
+    )
+    image = np.zeros((16, 16, 3), dtype=np.uint8)
+    target = np.zeros((16, 16), dtype=bool)
+    valid = np.ones_like(target)
+    target[0, 0] = target[-1, -1] = True
+    valid[0, 0] = False
+    source = data.sources[0]
+    row = {"sample_id": "border-crop", "split": "train"}
+
+    sample = dataset.transform(image, target, valid, source, row)
+    assert sample["metadata"]["transform"]["crop"] == [8, 8, 8, 8]
+    assert (sample["target"].bool() & sample["valid"]).sum().item() == 1
+    repeat = dataset.transform(image, target, valid, source, row)
+    assert sample["metadata"] == repeat["metadata"]
+    assert sample["target"].equal(repeat["target"])
+
+    valid[-1, -1] = False
+    empty = dataset.transform(image, target, valid, source, row)
+    assert empty["metadata"] == uniform.transform(image, target, valid, source, row)["metadata"]
+    valid[-1, -1] = True
+    row["split"] = "validation"
+    validation = dataset.transform(image, target, valid, source, row)
+    assert (
+        validation["metadata"] == uniform.transform(image, target, valid, source, row)["metadata"]
+    )
 
 
 @pytest.mark.parametrize(("shape", "batch_sizes"), [((43, 47), [3, 1]), ((19, 47), [2])])

@@ -1,10 +1,10 @@
 # Runbook chạy ablation phân đoạn vết nứt
 
-Hướng dẫn này dùng PowerShell 7 trên Windows và profile RTX 3060 12 GB. Kết quả gồm hai manifest `crack_v1`, audit chuyển đổi, ba run đối chứng trên CUBIT-InSeg và metric test. CIF Full dùng để đánh giá chuyển miền sau khi chọn checkpoint trên CUBIT.
+Hướng dẫn này dùng PowerShell 7 trên Windows và profile RTX 3060 12 GB. Kết quả gồm hai manifest `crack_v1`, audit chuyển đổi, bốn run đối chứng trên CUBIT-InSeg và metric test. CIF Full dùng để đánh giá chuyển miền sau khi chọn checkpoint trên CUBIT.
 
 ## 1. Cài môi trường
 
-Clone repo hoặc mở checkout đã có. Kiểm tra checkout có commit `d0f2b8c` hoặc bản mới hơn chứa script prepare và các config ablation. Chạy toàn bộ lệnh từ thư mục gốc repo.
+Clone repo hoặc mở checkout đã có. Kiểm tra checkout có script `scripts/prepare_training_data.py` và đủ các config trong bảng ablation ở bước 5. Chạy toàn bộ lệnh từ thư mục gốc repo.
 
 ```powershell
 git clone https://github.com/Zephyrus000/structural-defect-detection.git
@@ -28,7 +28,7 @@ $baseline = "configs/experiments/cubit_cnn_no_ph.yaml"
 & $sdd doctor --device cuda:0
 ```
 
-`doctor` cần nhận GPU đích, Python 3.14.x và CUDA runtime 13.0. Trên GPU khác, chọn profile trong `configs/machines/`. Dùng cùng profile cho ba ablation để so thời gian. [Wheel PyTorch chính thức](https://pytorch.org/get-started/previous-versions/#v2110)
+`doctor` cần nhận GPU đích, Python 3.14.x và CUDA runtime 13.0. Trên GPU khác, chọn profile trong `configs/machines/`. Dùng cùng profile cho các run ablation để so thời gian. [Wheel PyTorch chính thức](https://pytorch.org/get-started/previous-versions/#v2110)
 
 ## 2. Tải dữ liệu gốc
 
@@ -104,6 +104,7 @@ $variants = [ordered]@{
     baseline = $baseline
     cldice = "configs/experiments/cubit_cnn_cldice.yaml"
     ecc = "configs/experiments/cubit_cnn_ecc.yaml"
+    "hybrid-cldice" = "configs/experiments/hybrid_cldice_no_ph.yaml"
 }
 foreach ($entry in $variants.GetEnumerator()) {
     & $sdd train --config $entry.Value --machine $machine --dry-run --max-samples 8 `
@@ -114,15 +115,18 @@ foreach ($entry in $variants.GetEnumerator()) {
 
 Mỗi dry-run cần `status: completed`. Mở `.cache/runs_3060/dry-runs/<run-id>/report.json` để xem loss, gradient và số crop chứa crack. Nếu các crop đều không có crack, dry-run mới kiểm đường chạy với nền. Dùng thêm một mẫu có foreground trước khi đánh giá loss topology.
 
-## 5. Chạy ba ablation trên CUBIT
+## 5. Chạy ablation trên CUBIT
 
-Dùng cùng manifest, seed, kiến trúc CNN-only, crop `256×256`, effective batch 8 và lịch optimizer. Profile RTX 3060 bật 4 workers, micro-batch 8, BF16 và tiling trên GPU. `training.epochs=20` là ngân sách cấu hình ban đầu. Nếu nhóm đổi ngân sách, chốt chung trước khi chạy vì cosine scheduler phụ thuộc số epoch.
+Dùng cùng manifest, seed, crop `256×256`, effective batch 8 và lịch optimizer. Profile RTX 3060 bật 4 workers, micro-batch 8, BF16 và tiling trên GPU. `training.epochs=20` là ngân sách cấu hình ban đầu. Nếu nhóm đổi ngân sách, chốt chung trước khi chạy vì cosine scheduler phụ thuộc số epoch.
 
-| Run | Loss | Trọng số PH |
-|---|---|---:|
-| Baseline | Dice + Focal | 0 |
-| Soft-clDice | Dice + Focal + `0.1 × soft-clDice` | 0 |
-| ECC | Dice + Focal + `0.01 × ECC` | 0 |
+| Run | Kiến trúc | Loss | Trọng số PH |
+|---|---|---|---:|
+| Baseline | CNN-only | Dice + Focal | 0 |
+| Soft-clDice | CNN-only | Dice + Focal + `0.1 × soft-clDice` | 0 |
+| ECC | CNN-only | Dice + Focal + `0.01 × ECC` | 0 |
+| Hybrid soft-clDice | CNN–Swin | Dice + Focal + `0.1 × soft-clDice` | 0 |
+
+So ba run CNN-only để đo tác động của loss. So hai run soft-clDice để đo tác động của Swin.
 
 ```powershell
 $seed = 42
@@ -138,7 +142,7 @@ foreach ($entry in $variants.GetEnumerator()) {
 }
 ```
 
-Các run chạy tuần tự trên một GPU. Lượt quét manifest đầu run và validation ảnh gốc mỗi epoch có thể kéo dài. Khi run hoàn tất, kiểm `state.json`, `resolved.yaml`, `history.json`, `result.json` và `checkpoints/best.pt`. Để lặp lại cho seed khác, đổi `$seed` và chạy cả ba biến thể.
+Các run chạy tuần tự trên một GPU. Lượt quét manifest đầu run và validation ảnh gốc mỗi epoch có thể kéo dài. Khi run hoàn tất, kiểm `state.json`, `resolved.yaml`, `history.json`, `result.json` và `checkpoints/best.pt`. Để lặp lại cho seed khác, đổi `$seed` và chạy cả bốn biến thể.
 
 Để tiếp tục run bị gián đoạn sau một epoch đã lưu, đặt `$run` thành thư mục run đó và dùng `last.pt` cùng `resolved.yaml`:
 

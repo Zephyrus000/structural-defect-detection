@@ -1,0 +1,8 @@
+base: hybrid_cldice_no_ph.yaml
+data:
+  # Resample 35% of background crops to target about 50% positive CUBIT crops overall.
+  foreground_crop_probability: 0.35
+training:
+  epochs: 100
+  effective_batch: 128
+  early_stop_patience: 5

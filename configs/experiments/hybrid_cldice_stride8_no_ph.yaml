@@ -1,0 +1,8 @@
+base: hybrid_cldice_no_ph.yaml
+model:
+  channels: [32, 64, 128, 128]
+  feature_level: 3
+training:
+  epochs: 100
+  effective_batch: 128
+  early_stop_patience: 5

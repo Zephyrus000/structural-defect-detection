@@ -31,6 +31,7 @@ class DataConfig:
     augment: bool = True
     mean: tuple[float, ...] = (0.485, 0.456, 0.406)
     std: tuple[float, ...] = (0.229, 0.224, 0.225)
+    foreground_crop_probability: float = 0.0
 
 
 @dataclasses.dataclass(frozen=True)
@@ -131,6 +132,8 @@ class ExperimentConfig:
     @property
     def config_hash(self) -> str:
         value = self.to_dict()
+        if not self.data.foreground_crop_probability:
+            value["data"].pop("foreground_crop_probability")
         for key in ("cldice_weight", "ecc_weight"):
             if value["loss"][key] == 0:
                 value["loss"].pop(key)
@@ -143,6 +146,8 @@ class ExperimentConfig:
     @property
     def experiment_hash(self) -> str:
         value = self.to_dict()
+        if not self.data.foreground_crop_probability:
+            value["data"].pop("foreground_crop_probability")
         for key in ("cldice_weight", "ecc_weight"):
             if value["loss"][key] == 0:
                 value["loss"].pop(key)
@@ -236,6 +241,14 @@ def validate(cfg: ExperimentConfig) -> ExperimentConfig:
         )
         require(all(0 <= v <= 255 for values in sets for v in values), "Mask values must be uint8")
     require(d.train_mode in ("crop", "resize"), "train_mode must be crop or resize")
+    require(
+        0 <= d.foreground_crop_probability <= 1,
+        "foreground_crop_probability must be between 0 and 1",
+    )
+    require(
+        not d.foreground_crop_probability or d.train_mode == "crop",
+        "foreground_crop_probability requires train_mode=crop",
+    )
     require(min(d.size) >= 8, "Input size must be at least 8")
     require(len(d.mean) == len(d.std) == 3 and min(d.std) > 0, "Invalid RGB normalization")
     require(m.name in ("hybrid", "cnn_only"), "Unknown model")
